@@ -1,29 +1,42 @@
 package com.redBeeDemo.fireEmblem.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "fighter")
+
 public class Fighter {
 
 	
 	//ATTRIBUTES
+	
+	@Id
+	@GeneratedValue
+	private Long idFighter;
+	
+	@ManyToOne()
+	@JoinColumn(name = "level_id")
+	private Level level;
+	
+	@ManyToOne()
+	@JoinColumn(name = "weapon_id")
+	private Weapon weapon;
+	
 	private String name;
 	private int heatlh;
 	private int defense;
 	private int attack;
-	private Level level;
-	private Weapon weapon;
 	
 	//CONSTRUCTORS
-	public Fighter(Level level, Weapon weapon) {
-		super();
-		this.level = level;
-		this.weapon = weapon;
-	}
-	public Fighter(int heatlh, int defense, int attack, Level level, Weapon weapon) {
-		super();
+	public Fighter(int heatlh, int defense, int attack) {
 		this.heatlh = heatlh;
 		this.defense = defense;
 		this.attack = attack;
-		this.level = level;
-		this.weapon = weapon;
 	}
 	
 	//GETTERS AND SETTERS
@@ -57,28 +70,51 @@ public class Fighter {
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	//METHODS
-	public void attack(Fighter fighter) {
+	public void attack(Fighter opponent, int advMultiplier) {
 		int attackPower = this.getAttack();
 		int attackWeapon = this.getWeapon().getAttack();
 		int attackLevel = this.getLevel().getAttack();
-		int attackMultiplier = this.compareWeapons(fighter);
+		int attackMultiplier = advMultiplier;
 		
 		int attackTotal = (attackPower + attackWeapon + attackLevel) * attackMultiplier;
-		
-		int defenseOpponet = fighter.getDefense();
-		int defenseLevel = fighter.getLevel().getDefense();
-		
-		int directAttack = attackTotal - (defenseOpponet + defenseLevel);
-		
-		if(directAttack <= fighter.getHeatlh()) {
-			fighter.setHeatlh(this.getHeatlh() - directAttack);
-		} else {
-			fighter.setHeatlh(0);
-		}
+		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
+
+		opponent.receiveAttack(attackTotal);
+
 	}
 	
+	public void receiveAttack(int attackReceived) {
+				
+		int defenseOpponet = this.getDefense();
+		int defenseLevel = this.getLevel().getDefense();
+		
+		int defenseDone = defenseOpponet + defenseLevel;
+		System.out.println(this.getName() + " could protect himself/herself of : " + defenseDone + " damage.");
+		
+		int damageReceived = attackReceived - defenseDone;		
+		if (damageReceived > 0) {
+			if(damageReceived <= this.getHeatlh()) {
+				this.setHeatlh(this.getHeatlh() - damageReceived);
+			} else {
+				this.setHeatlh(0);
+			}
+			
+			System.out.println(this.getName() + " ended up getting damaged by: " + damageReceived + ".");
+			System.out.println(this.getName() + " now has " + this.getHeatlh() + " hp.");
+		} else {
+			System.out.println((this.getName() + " received no damage at all."));
+		}
+		
 
+		
+	}
 	
 }

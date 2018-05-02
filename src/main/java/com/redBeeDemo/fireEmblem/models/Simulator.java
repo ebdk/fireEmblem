@@ -1,6 +1,6 @@
 package com.redBeeDemo.fireEmblem.models;
 
-public class Game {
+public class Simulator {
 	
 	//ATTRIBUTES
 	private Fighter fighter1;
@@ -9,10 +9,8 @@ public class Game {
 	private int turnNumber;
 	
 	//CONSTRUCTOR
-	public Game(Fighter fighter1, Fighter figther2) {
-		super();
-		this.fighter1 = fighter1;
-		this.figther2 = figther2;
+	public Simulator() {
+		this.turnNumber = 1;
 	}
 	
 	//GETTERS AND SETTERS
@@ -32,7 +30,7 @@ public class Game {
 		return gameNumber;
 	}
 	public static void setGameNumber(int gameNumber) {
-		Game.gameNumber = gameNumber;
+		Simulator.gameNumber = gameNumber;
 	}
 	public int getTurnNumber() {
 		return turnNumber;
@@ -41,7 +39,12 @@ public class Game {
 		this.turnNumber = turnNumber;
 	}
 	
-	
+	public void initialize() {
+		Level level1 = new Level("Apprentice", 5, 2);
+		Level level2 = new Level("Apprentice", 5, 2);
+		Level level3 = new Level("Apprentice", 5, 2);
+		Level level4 = new Level("Apprentice", 5, 2);
+	}
 	
 
 }

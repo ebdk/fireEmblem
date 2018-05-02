@@ -1,26 +1,45 @@
 package com.redBeeDemo.fireEmblem.models;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "weapon")
+
 public abstract class Weapon {
 	
 	//ATTRIBUTES
-	private String type = this.getClass().toString();
+	@Id
+	@GeneratedValue
+	private Long idWeapon;
+	
+	@OneToMany(mappedBy = "fighter")
+	private List<Fighter> figthersWithWeapon;
+	
+	@OneToOne
+	private Weapon strongAgainst;
+
+	@OneToOne(mappedBy = "strongAgainst")
+	private Weapon weakAgainst;
+	//https://stackoverflow.com/questions/22972241/jpa-validation-onetoone-to-same-table
+	
 	private String name;
 	private int attack;
-	private Weapon strongAgainst;
-	private Weapon weakAgainst;
-
 	
 	//CONSTRUCTOR
 	public Weapon(String name, int attack) {
-		super();
 		this.name = name;
 		this.attack = attack;
 	}
 	
 	//GETTERS AND SETTERS
-	public String getType() {
-		return type;
-	}
 	public String getName() {
 		return name;
 	}
@@ -45,6 +64,7 @@ public abstract class Weapon {
 	public void setWeakAgainst(Weapon weakAgainst) {
 		this.weakAgainst = weakAgainst;
 	}
+	
 	
 	
 }

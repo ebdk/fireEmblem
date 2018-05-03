@@ -13,15 +13,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "weapon")
 
-public abstract class Weapon {
+public class Weapon {
 	
 	//ATTRIBUTES
 	@Id
 	@GeneratedValue
 	private Long idWeapon;
 	
-	@OneToMany(mappedBy = "fighter")
-	private List<Fighter> figthersWithWeapon;
+	@OneToMany(mappedBy = "weapon")
+	private List<Fighter> usedBy;
 	
 	@OneToOne
 	private Weapon strongAgainst;

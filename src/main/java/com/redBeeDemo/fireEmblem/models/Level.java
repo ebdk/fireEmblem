@@ -21,7 +21,7 @@ public class Level {
 	@GeneratedValue
 	private Long idLevel;
 	
-	@OneToMany(mappedBy = "fighter")
+	@OneToMany(mappedBy = "level")
 	private List<Fighter> figthersAtThisLevel;
 	
 	private String name;

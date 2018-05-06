@@ -23,7 +23,7 @@ public class MainController {
 	@Autowired
 	DaoLevel daoLevel;
 	
-	//WeaponFactory wpnFact = new WeaponFactory();
+	WeaponFactory wpnFact = new WeaponFactory();
 	
 
 	public MainController() {
@@ -31,7 +31,7 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		//wpnFact.createAxe("axee", 20);
+		wpnFact.createAxe("axee", 20);
 		return "homepage";
 	}
 

@@ -32,7 +32,7 @@ public class Fighter {
 	private int attack;
 	
 	//CONSTRUCTORS
-	public Fighter(Level level, Weapon weapon, String name, int heatlh, int defense, int attack) {
+	public Fighter(Level level, Weapon weapon, String name, int heatlh,int attack, int defense) {
 		this.name = name;
 		this.heatlh = heatlh;
 		this.defense = defense;
@@ -123,10 +123,12 @@ public class Fighter {
 			System.out.println(this.getName() + " now has " + this.getHeatlh() + " hp.");
 		} else {
 			System.out.println((this.getName() + " received no damage at all."));
-		}
-		
-
-		
+		}	
 	}
 	
+	/*
+	public void modifyLevel() {
+		this.getLevel().levelUp();
+	}
+	*/
 }

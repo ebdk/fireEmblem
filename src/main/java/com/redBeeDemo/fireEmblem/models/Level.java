@@ -27,12 +27,16 @@ public class Level {
 	private String name;
 	private int attack;
 	private int defense;
+	private int health;
+	private int position;
 	
 	//CONSTRUCTOR
-	public Level(String name,int attack, int defense) {
+	public Level(String name, int health, int attack, int defense, int position) {
 		this.name = name;
+		this.health= health;
 		this.attack = attack;
 		this.defense = defense;
+		this.position = position;
 	}
 	
 	//GETTERS AND SETTERS
@@ -53,6 +57,18 @@ public class Level {
 	}
 	public void setDefense(int defense) {
 		this.defense = defense;
+	}
+	public int getHealth() {
+		return health;
+	}
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
 	

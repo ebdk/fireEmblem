@@ -39,12 +39,12 @@ public class Simulator {
 		this.turnNumber = turnNumber;
 	}
 	
-	public void initialize() {
+	/*public void initialize() {
 		Level level1 = new Level("Apprentice", 5, 2);
 		Level level2 = new Level("Apprentice", 5, 2);
 		Level level3 = new Level("Apprentice", 5, 2);
 		Level level4 = new Level("Apprentice", 5, 2);
-	}
+	}*/
 	
 
 }

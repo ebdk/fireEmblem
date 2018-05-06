@@ -6,7 +6,10 @@ public class Simulator {
 	private Fighter fighter1;
 	private Fighter figther2;
 	private static int gameNumber;
-	private int turnNumber;
+	private static int turnNumber;
+	private static FighterFactory fighterFactory;
+	private static LevelFactory levelFactory;
+	private static WeaponFactory weaponFactory;
 	
 	//CONSTRUCTOR
 	public Simulator() {
@@ -39,12 +42,6 @@ public class Simulator {
 		this.turnNumber = turnNumber;
 	}
 	
-	/*public void initialize() {
-		Level level1 = new Level("Apprentice", 5, 2);
-		Level level2 = new Level("Apprentice", 5, 2);
-		Level level3 = new Level("Apprentice", 5, 2);
-		Level level4 = new Level("Apprentice", 5, 2);
-	}*/
 	
 
 }

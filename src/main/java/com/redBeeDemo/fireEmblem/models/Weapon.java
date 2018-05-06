@@ -23,20 +23,14 @@ public class Weapon {
 	@OneToMany(mappedBy = "weapon")
 	private List<Fighter> usedBy;
 	
-	/*
-	@OneToOne
-	private Weapon strongAgainst;
-
-	@OneToOne(mappedBy = "strongAgainst")
-	private Weapon weakAgainst;
-	//https://stackoverflow.com/questions/22972241/jpa-validation-onetoone-to-same-table
-	 */
-	
 	private String name;
 	private int attack;
 	private String type;
 	
 	//CONSTRUCTOR
+	public Weapon() {
+	}
+	
 	public Weapon(String name, int attack) {
 		this.name = name;
 		this.attack = attack;
@@ -76,22 +70,11 @@ public class Weapon {
 	public List<Fighter> getUsedBy() {
 		return usedBy;
 	}
-	/*
-	public Weapon getStrongAgainst() {
-		return strongAgainst;
-	}
-	public void setStrongAgainst(Weapon strongAgainst) {
-		this.strongAgainst = strongAgainst;
-	}
-	public Weapon getWeakAgainst() {
-		return weakAgainst;
-	}
-	public void setWeakAgainst(Weapon weakAgainst) {
-		this.weakAgainst = weakAgainst;
+	public void linkFighter(Fighter fighter) {
+		
 	}
 	
-	*/
-
+	/*
 	enum SwAxSp {
 		    Sw("Sword", "Ax"), Sp("Spear", "Sw"), Ax("Axe", "Sp");
 		    private final String beats, name;
@@ -99,5 +82,6 @@ public class Weapon {
 		    int compare(SwAxSp other) { return other == this? 0 : other == valueOf(beats)? 1 : -1; }
 		    String fullName() { return name; }
 		  }
+		  */
 	
 }

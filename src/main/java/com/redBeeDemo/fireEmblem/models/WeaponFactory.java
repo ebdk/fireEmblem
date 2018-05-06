@@ -7,35 +7,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class WeaponFactory {
 
-	@Autowired
-	static
-	DaoWeapon daoWeapon;
+	static List<Weapon> weapons = new ArrayList<Weapon>();
 
 	public WeaponFactory() {
 	}
 	
 	public static Weapon createSword(String name, int attack) {
 		Weapon sword = new Weapon(name, attack, "Sword");
-		daoWeapon.save(sword);
+		weapons.add(sword);
 		return sword;
 	}
 	
 	public static Weapon createAxe(String name, int attack) {
 		Weapon axe = new Weapon(name, attack, "Axe");
-		daoWeapon.save(axe);
+		weapons.add(axe);
 		return axe;
 	}
 	
 	public static Weapon createSpear(String name, int attack) {
 		Weapon spear = new Weapon(name, attack, "Spear");
-		daoWeapon.save(spear);
+		weapons.add(spear);
 		return spear;
 	}
 	
-	public static Weapon lookUpWeapon(String name, int attack, String type) {
-		Weapon wpn = null;
-		List<Weapon> weapons = daoWeapon.findByname(name);
-		if(weapons.size()==0){		
+	public static Weapon getWeapon(String name, int attack, String type) {
+		Weapon wpn = lookUpWpn(name);
+		if(wpn.equals(null)){		
 			switch(type){
 				case "Sword":
 					wpn = createSword(name, attack);
@@ -47,52 +44,56 @@ public class WeaponFactory {
 					wpn = createSpear(name, attack);
 					break;
 			}
-		} else {
-			wpn = weapons.get(0);
-		}
+		} 
 		return wpn;
 	}
 	
+	public static Weapon lookUpWpn(String name) {
+		Weapon res = null;
+		for(Weapon wpn : weapons) {
+			if(wpn.getName().equals(name)) {
+				res = wpn;
+			}
+		}
+		return res;
+	}
+	
 	public static double lookUpWeakness(String attackerWpn, String defenderWpn) {
-		double res = 0;
-		switch(attackerWpn) {
+		double res = 1;
+		if(attackerWpn == defenderWpn) {
+			res = 1;
+		} else {
+			switch(attackerWpn) {
 			case "Sword":
 				switch(defenderWpn){
-					case "Sword": 
-						res = 1;
-						break;
 					case "Axe": 
-						res = 2;
+						res = 0.5;
 						break;
 					case "Spear": 
-						res = 0.5;
+						res = 2;
 						break;
 				}
 			case "Axe":
 				switch(defenderWpn){
 					case "Sword": 
-						res = 0.5;
-						break;
-					case "Axe": 
-						res = 1;
+						res = 2;
 						break;
 					case "Spear": 
-						res = 2;
+						res = 0.5;
 						break;
 				}
 			case "Spear":
 				switch(defenderWpn){
 					case "Sword": 
-						res = 2;
-						break;
-					case "Axe": 
 						res = 0.5;
 						break;
-					case "Spear": 
-						res = 1;
+					case "Axe": 
+						res = 2;
 						break;
 				}
 		}
+		}
+		
 		return res;
 	}
 	

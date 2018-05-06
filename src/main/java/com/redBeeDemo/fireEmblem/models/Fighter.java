@@ -16,7 +16,7 @@ public class Fighter {
 	//ATTRIBUTES
 	@Id
 	@GeneratedValue
-	private Long idFighter;
+	private double idFighter;
 	
 	@ManyToOne()
 	@JoinColumn(name = "level_id")
@@ -27,18 +27,21 @@ public class Fighter {
 	private Weapon weapon;
 	
 	private String name;
-	private int heatlh;
+	private double heatlh;
 	private int defense;
 	private int attack;
 	
 	//CONSTRUCTORS
+	public Fighter() {
+	}
+	
 	public Fighter(Level level, Weapon weapon, String name, int heatlh,int attack, int defense) {
 		this.name = name;
 		this.heatlh = heatlh;
 		this.defense = defense;
 		this.attack = attack;
 		this.setWeapon(weapon);
-		this.setLevel(level);
+		this.level = level;
 	}
 	public Fighter(Level level, Weapon weapon) {
 		this.level = level;
@@ -52,10 +55,10 @@ public class Fighter {
 	}
 	
 	//GETTERS AND SETTERS
-	public int getHeatlh() {
+	public double getHeatlh() {
 		return heatlh;
 	}
-	public void setHeatlh(int heatlh) {
+	public void setHeatlh(double heatlh) {
 		this.heatlh = heatlh;
 	}
 	public int getDefense() {
@@ -75,12 +78,14 @@ public class Fighter {
 	}
 	public void setLevel(Level level) {
 		this.level = level;
+		//level.linkFighter(this);
 	}
 	public Weapon getWeapon() {
 		return weapon;
 	}
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
+		weapon.linkFighter(this);
 	}
 	public String getName() {
 		return name;
@@ -90,20 +95,21 @@ public class Fighter {
 	}
 	
 	//METHODS
-	public void attack(Fighter opponent, int advMultiplier) {
+	public void attack(Fighter opponent) {
 		int attackPower = this.getAttack();
 		int attackWeapon = this.getWeapon().getAttack();
 		int attackLevel = this.getLevel().getAttack();
-		int attackMultiplier = advMultiplier;
+		double advMultiplier = analyzeWeakness(this, opponent);
+
+		double attackTotal = (attackPower + attackWeapon + attackLevel) * advMultiplier;
 		
-		int attackTotal = (attackPower + attackWeapon + attackLevel) * attackMultiplier;
 		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
 
 		opponent.receiveAttack(attackTotal);
 
 	}
 	
-	public void receiveAttack(int attackReceived) {
+	public void receiveAttack(double attackReceived) {
 				
 		int defenseOpponet = this.getDefense();
 		int defenseLevel = this.getLevel().getDefense();
@@ -111,7 +117,7 @@ public class Fighter {
 		int defenseDone = defenseOpponet + defenseLevel;
 		System.out.println(this.getName() + " could protect himself/herself of : " + defenseDone + " damage.");
 		
-		int damageReceived = attackReceived - defenseDone;		
+		double damageReceived = attackReceived - defenseDone;		
 		if (damageReceived > 0) {
 			if(damageReceived <= this.getHeatlh()) {
 				this.setHeatlh(this.getHeatlh() - damageReceived);
@@ -126,9 +132,42 @@ public class Fighter {
 		}	
 	}
 	
-	/*
-	public void modifyLevel() {
-		this.getLevel().levelUp();
+	public double analyzeWeakness(Fighter attackerWpn, Fighter defenderWpn) {
+		double res = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
+		if(res == 1) {
+			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was the same type of his rival's so no effect was given.");
+		}
+		if(res == 0.5) {
+			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was weaker than of his rival's.");
+		}
+		if(res == 2) {
+			System.out.println("SMAAAAAASH " +this.getName() + "'s " + this.getWeapon().getName() + " was stronger than of this rival's.");
+		}
+		return res;	
 	}
-	*/
+	
+	public void modifyLevel(String upOrDown) {
+		switch(upOrDown) {
+			case "up" :
+				if(LevelFactory.getLevels().size() - 1 == this.getLevel().getPosition()) {
+					System.out.println("Couldn't modify " + this.getName() + "'s level");
+					System.out.println("Reason: His level was alredy the highest");
+				} else {
+					Level lvlUp = LevelFactory.lookUpLvl(this.getLevel().getPosition() + 1);
+					this.setLevel(lvlUp);
+				}
+				break;
+			case "down" :
+				if(0 == this.getLevel().getPosition()) {
+					System.out.println("Couldn't modify " + this.getName() + "'s level");
+					System.out.println("Reason: His level was alredy the lowest");
+				} else {
+					Level lvlDown = LevelFactory.lookUpLvl(this.getLevel().getPosition() - 1);
+					this.setLevel(lvlDown);
+				}
+				break;
+			default:
+				System.out.println("Couldn't modify " + this.getName() + "'s level");
+		}
+	}
 }

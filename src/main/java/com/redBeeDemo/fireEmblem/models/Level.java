@@ -31,6 +31,10 @@ public class Level {
 	private int position;
 	
 	//CONSTRUCTOR
+	public Level() {
+	}
+	//https://stackoverflow.com/questions/44088360/org-hibernate-instantiationexception-no-default-constructor-for-entity-princ
+	
 	public Level(String name, int health, int attack, int defense, int position) {
 		this.name = name;
 		this.health= health;
@@ -69,6 +73,12 @@ public class Level {
 	}
 	public void setPosition(int position) {
 		this.position = position;
+	}
+	public void linkFighter(Fighter fighter) {
+		this.figthersAtThisLevel.add(fighter);
+	}
+	public List<Fighter> getFigthersAtThisLevel() {
+		return figthersAtThisLevel;
 	}
 	
 	

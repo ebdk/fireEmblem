@@ -14,7 +14,6 @@ public class Fighter {
 
 	
 	//ATTRIBUTES
-	
 	@Id
 	@GeneratedValue
 	private Long idFighter;
@@ -33,7 +32,20 @@ public class Fighter {
 	private int attack;
 	
 	//CONSTRUCTORS
-	public Fighter(int heatlh, int defense, int attack) {
+	public Fighter(Level level, Weapon weapon, String name, int heatlh, int defense, int attack) {
+		this.name = name;
+		this.heatlh = heatlh;
+		this.defense = defense;
+		this.attack = attack;
+		this.setWeapon(weapon);
+		this.setLevel(level);
+	}
+	public Fighter(Level level, Weapon weapon) {
+		this.level = level;
+		this.weapon = weapon;
+	}
+	public Fighter(String name, int heatlh, int defense, int attack) {
+		this.name = name;
 		this.heatlh = heatlh;
 		this.defense = defense;
 		this.attack = attack;

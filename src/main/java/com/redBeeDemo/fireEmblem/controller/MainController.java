@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.redBeeDemo.fireEmblem.models.DaoFighter;
 import com.redBeeDemo.fireEmblem.models.DaoLevel;
+import com.redBeeDemo.fireEmblem.models.WeaponFactory;
 
 @Controller
 public class MainController {
@@ -21,12 +22,16 @@ public class MainController {
 	
 	@Autowired
 	DaoLevel daoLevel;
+	
+	//WeaponFactory wpnFact = new WeaponFactory();
+	
 
 	public MainController() {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		//wpnFact.createAxe("axee", 20);
 		return "homepage";
 	}
 

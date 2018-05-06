@@ -23,22 +23,31 @@ public class Weapon {
 	@OneToMany(mappedBy = "weapon")
 	private List<Fighter> usedBy;
 	
+	/*
 	@OneToOne
 	private Weapon strongAgainst;
 
 	@OneToOne(mappedBy = "strongAgainst")
 	private Weapon weakAgainst;
 	//https://stackoverflow.com/questions/22972241/jpa-validation-onetoone-to-same-table
+	 */
 	
 	private String name;
 	private int attack;
+	private String type;
 	
 	//CONSTRUCTOR
 	public Weapon(String name, int attack) {
 		this.name = name;
 		this.attack = attack;
 	}
-	
+	public Weapon(String name, int attack, String type) {
+		super();
+		this.name = name;
+		this.attack = attack;
+		this.type = type;
+	}
+
 	//GETTERS AND SETTERS
 	public String getName() {
 		return name;
@@ -51,7 +60,23 @@ public class Weapon {
 	}
 	public void setAttack(int attack) {
 		this.attack = attack;
+	}	
+	  public Long getIdWeapon() {
+		return idWeapon;
 	}
+	public void setIdWeapon(Long idWeapon) {
+		this.idWeapon = idWeapon;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public List<Fighter> getUsedBy() {
+		return usedBy;
+	}
+	/*
 	public Weapon getStrongAgainst() {
 		return strongAgainst;
 	}
@@ -65,7 +90,9 @@ public class Weapon {
 		this.weakAgainst = weakAgainst;
 	}
 	
-	  enum SwAxSp {
+	*/
+
+	enum SwAxSp {
 		    Sw("Sword", "Ax"), Sp("Spear", "Sw"), Ax("Axe", "Sp");
 		    private final String beats, name;
 		    SwAxSp(String name, String beats) { this.beats = beats; this.name = name; }

@@ -21703,3 +21703,402 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2018-05-06 22:12:24.395 DEBUG 9604 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select fighter0_.id_fighter as id_fight1_0_, fighter0_.attack as attack2_0_, fighter0_.defense as defense3_0_, fighter0_.heatlh as heatlh4_0_, fighter0_.level_id as level_id6_0_, fighter0_.name as name5_0_, fighter0_.weapon_id as weapon_i7_0_ from fighter fighter0_ where fighter0_.name=?
 2018-05-06 22:12:24.395 TRACE 9604 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Thor]
 2018-05-06 22:12:24.396 TRACE 9604 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id_fight1_0_] : [BIGINT]) - [25]
+2018-05-07 16:45:29.047  INFO 16008 --- [main] c.r.fireEmblem.FireEmblemApplication     : Starting FireEmblemApplication on CPX-35KYYFJRB04 with PID 16008 (C:\Users\esteban.asselborn\repos\fireEmblem\fireEmblem\target\classes started by esteban.asselborn in C:\Users\esteban.asselborn\repos\fireEmblem\fireEmblem)
+2018-05-07 16:45:29.056  INFO 16008 --- [main] c.r.fireEmblem.FireEmblemApplication     : No active profile set, falling back to default profiles: default
+2018-05-07 16:45:29.276  INFO 16008 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@692f203f: startup date [Mon May 07 16:45:29 ART 2018]; root of context hierarchy
+2018-05-07 16:45:33.858  INFO 16008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3c6448a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-07 16:45:34.807  INFO 16008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-05-07 16:45:34.878  INFO 16008 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-07 16:45:34.879  INFO 16008 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.29
+2018-05-07 16:45:34.895  INFO 16008 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_171\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_171/bin/server;C:/Program Files/Java/jre1.8.0_171/bin;C:/Program Files/Java/jre1.8.0_171/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Java\jdk1.8.0_151;C:\Program Files\TortoiseGit\bin;C:\Users\esteban.asselborn\AppData\Local\Microsoft\WindowsApps;C:\Users\esteban.asselborn\AppData\Local\Programs\Git\cmd;C:\Users\esteban.asselborn\AppData\Local\GitHubDesktop\bin;C:\Users\esteban.asselborn\Desktop;;.]
+2018-05-07 16:45:35.192  INFO 16008 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/fireEmblem]    : Initializing Spring embedded WebApplicationContext
+2018-05-07 16:45:35.192  INFO 16008 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5916 ms
+2018-05-07 16:45:35.522  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-05-07 16:45:35.524  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-05-07 16:45:35.532  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-05-07 16:45:35.533  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-05-07 16:45:35.534  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-05-07 16:45:35.546  INFO 16008 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-05-07 16:45:36.342  INFO 16008 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-05-07 16:45:36.641  INFO 16008 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-05-07 16:45:36.729  INFO 16008 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-05-07 16:45:36.830  INFO 16008 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-05-07 16:45:37.520  INFO 16008 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.16.Final}
+2018-05-07 16:45:37.523  INFO 16008 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-05-07 16:45:37.669  INFO 16008 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-05-07 16:45:37.826 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@21ac5eb4
+2018-05-07 16:45:37.827 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@21ac5eb4
+2018-05-07 16:45:37.828 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@21ac5eb4
+2018-05-07 16:45:37.833 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@7397c6
+2018-05-07 16:45:37.835 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@6014a9ba
+2018-05-07 16:45:37.837 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@4a14c44f
+2018-05-07 16:45:37.839 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@5c1f6d57
+2018-05-07 16:45:37.839 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@5c1f6d57
+2018-05-07 16:45:37.839 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@5c1f6d57
+2018-05-07 16:45:37.841 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@17b6d426
+2018-05-07 16:45:37.842 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@17b6d426
+2018-05-07 16:45:37.842 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@17b6d426
+2018-05-07 16:45:37.844 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@20e3c449
+2018-05-07 16:45:37.844 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@20e3c449
+2018-05-07 16:45:37.844 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@20e3c449
+2018-05-07 16:45:37.845 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@2dd8239
+2018-05-07 16:45:37.846 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@2dd8239
+2018-05-07 16:45:37.846 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@2dd8239
+2018-05-07 16:45:37.849 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@3f92a84e
+2018-05-07 16:45:37.850 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@3f92a84e
+2018-05-07 16:45:37.850 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@3f92a84e
+2018-05-07 16:45:37.853 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@24934262
+2018-05-07 16:45:37.853 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@24934262
+2018-05-07 16:45:37.853 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@24934262
+2018-05-07 16:45:37.855 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@341672e
+2018-05-07 16:45:37.856 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@341672e
+2018-05-07 16:45:37.856 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@341672e
+2018-05-07 16:45:37.858 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@fabb651
+2018-05-07 16:45:37.858 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@fabb651
+2018-05-07 16:45:37.860 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@58496c97
+2018-05-07 16:45:37.860 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@58496c97
+2018-05-07 16:45:37.862 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@144ab54
+2018-05-07 16:45:37.862 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@144ab54
+2018-05-07 16:45:37.863 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@11b455e5
+2018-05-07 16:45:37.865 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@74294c1a
+2018-05-07 16:45:37.867 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@5bb51241
+2018-05-07 16:45:37.868 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@5bb51241
+2018-05-07 16:45:37.869 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@3efedc6f
+2018-05-07 16:45:37.870 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@3efedc6f
+2018-05-07 16:45:37.872 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@3531f3ca
+2018-05-07 16:45:37.872 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@3531f3ca
+2018-05-07 16:45:37.873 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@59e43e8c
+2018-05-07 16:45:37.874 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@59e43e8c
+2018-05-07 16:45:37.877 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@3f049056
+2018-05-07 16:45:37.877 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@3f049056
+2018-05-07 16:45:37.879 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@4c2fb9dd
+2018-05-07 16:45:37.880 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@4c2fb9dd
+2018-05-07 16:45:37.881 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@5477a1ca
+2018-05-07 16:45:37.881 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@5477a1ca
+2018-05-07 16:45:37.882 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@131ff6fa
+2018-05-07 16:45:37.883 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@131ff6fa
+2018-05-07 16:45:37.888 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@2903c6ff
+2018-05-07 16:45:37.888 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@2903c6ff
+2018-05-07 16:45:37.892 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@d8d9199
+2018-05-07 16:45:37.893 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@d8d9199
+2018-05-07 16:45:37.894 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@47af099e
+2018-05-07 16:45:37.895 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@47af099e
+2018-05-07 16:45:37.896 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@260ff5b7
+2018-05-07 16:45:37.896 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@260ff5b7
+2018-05-07 16:45:37.896 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@260ff5b7
+2018-05-07 16:45:37.898 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@68e7c8c3
+2018-05-07 16:45:37.899 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@81b5db0
+2018-05-07 16:45:37.900 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@81b5db0
+2018-05-07 16:45:37.900 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@81b5db0
+2018-05-07 16:45:37.901 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@199bc830
+2018-05-07 16:45:37.902 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@4d8286c4
+2018-05-07 16:45:37.902 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@4d8286c4
+2018-05-07 16:45:37.903 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@4e1ce44
+2018-05-07 16:45:37.904 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@4e1ce44
+2018-05-07 16:45:37.905 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@2f61d591
+2018-05-07 16:45:37.905 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@2f61d591
+2018-05-07 16:45:37.906 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@21f459fc
+2018-05-07 16:45:37.907 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@21f459fc
+2018-05-07 16:45:37.909 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@55d9b8f0
+2018-05-07 16:45:37.910 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@55d9b8f0
+2018-05-07 16:45:37.910 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@75361cf6
+2018-05-07 16:45:37.912 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@1d75e7af
+2018-05-07 16:45:37.912 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@1d75e7af
+2018-05-07 16:45:37.912 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@1d75e7af
+2018-05-07 16:45:37.914 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@5e048149
+2018-05-07 16:45:37.914 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@5e048149
+2018-05-07 16:45:37.914 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@5e048149
+2018-05-07 16:45:37.916 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@57402ba1
+2018-05-07 16:45:37.917 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@396639b
+2018-05-07 16:45:37.919 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@2ab0702e
+2018-05-07 16:45:37.919 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@2ab0702e
+2018-05-07 16:45:37.919 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@2ab0702e
+2018-05-07 16:45:37.922 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@e8e0dec
+2018-05-07 16:45:37.922 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@e8e0dec
+2018-05-07 16:45:37.922 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@e8e0dec
+2018-05-07 16:45:37.924 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@19650aa6
+2018-05-07 16:45:37.925 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@1a6cf771
+2018-05-07 16:45:37.935 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@47b67fcb
+2018-05-07 16:45:37.935 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@47b67fcb
+2018-05-07 16:45:37.936 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@7efe7b87
+2018-05-07 16:45:37.973 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@55e2fe3c
+2018-05-07 16:45:37.974 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@55e2fe3c
+2018-05-07 16:45:37.981 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@aa4d8cc
+2018-05-07 16:45:37.982 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@aa4d8cc
+2018-05-07 16:45:37.990 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@70c0a3d5
+2018-05-07 16:45:37.992 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@49206065
+2018-05-07 16:45:38.025 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@407873d3
+2018-05-07 16:45:38.092 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@7569ea63
+2018-05-07 16:45:38.094 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@7569ea63
+2018-05-07 16:45:38.096 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@4cdb8504
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@76db540e
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@10358c32
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@2af4129d
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@3a175162
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@1640190a
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@2a2843ec
+2018-05-07 16:45:38.101 DEBUG 16008 --- [main] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@2042ccce
+2018-05-07 16:45:38.204  INFO 16008 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-05-07 16:45:39.341 TRACE 16008 --- [main] org.hibernate.type.TypeFactory           : Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@7d247660
+2018-05-07 16:45:40.083 DEBUG 16008 --- [main] org.hibernate.SQL                        : drop table fighter if exists
+2018-05-07 16:45:40.087 DEBUG 16008 --- [main] org.hibernate.SQL                        : drop table level if exists
+2018-05-07 16:45:40.087 DEBUG 16008 --- [main] org.hibernate.SQL                        : drop table weapon if exists
+2018-05-07 16:45:40.088 DEBUG 16008 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2018-05-07 16:45:40.091 DEBUG 16008 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2018-05-07 16:45:40.094 DEBUG 16008 --- [main] org.hibernate.SQL                        : create table fighter (id_fighter bigint not null, attack integer not null, defense integer not null, heatlh integer not null, name varchar(255), level_id bigint, weapon_id bigint, primary key (id_fighter))
+2018-05-07 16:45:40.099 DEBUG 16008 --- [main] org.hibernate.SQL                        : create table level (id_level bigint not null, attack integer not null, defense integer not null, health integer not null, name varchar(255), position integer not null, primary key (id_level))
+2018-05-07 16:45:40.101 DEBUG 16008 --- [main] org.hibernate.SQL                        : create table weapon (id_weapon bigint not null, attack integer not null, name varchar(255), type varchar(255), primary key (id_weapon))
+2018-05-07 16:45:40.102 DEBUG 16008 --- [main] org.hibernate.SQL                        : alter table fighter add constraint FKbfpf79167cd7cip6h01ck96pj foreign key (level_id) references level
+2018-05-07 16:45:40.114 DEBUG 16008 --- [main] org.hibernate.SQL                        : alter table fighter add constraint FKf6rkargiummfedvpmni945itq foreign key (weapon_id) references weapon
+2018-05-07 16:45:40.118  INFO 16008 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6411504a'
+2018-05-07 16:45:40.122  INFO 16008 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-05-07 16:45:40.299  INFO 16008 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [data.sql]
+2018-05-07 16:45:40.303  INFO 16008 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [data.sql] in 4 ms.
+2018-05-07 16:45:41.374  INFO 16008 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-07 16:45:42.184  INFO 16008 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@692f203f: startup date [Mon May 07 16:45:29 ART 2018]; root of context hierarchy
+2018-05-07 16:45:42.413  WARN 16008 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-05-07 16:45:42.517  INFO 16008 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.redBeeDemo.fireEmblem.controller.MainController.home(org.springframework.ui.Model)
+2018-05-07 16:45:42.523  INFO 16008 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-05-07 16:45:42.525  INFO 16008 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-05-07 16:45:42.604  INFO 16008 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-07 16:45:42.605  INFO 16008 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-07 16:45:43.400  INFO 16008 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-05-07 16:45:43.402  INFO 16008 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-05-07 16:45:43.411  INFO 16008 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-05-07 16:45:43.562  INFO 16008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/fireEmblem'
+2018-05-07 16:45:43.569  INFO 16008 --- [main] c.r.fireEmblem.FireEmblemApplication     : Started FireEmblemApplication in 16.516 seconds (JVM running for 17.89)
+2018-05-07 16:47:32.032  INFO 16008 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/fireEmblem]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-07 16:47:32.033  INFO 16008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-05-07 16:47:32.072  INFO 16008 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms
+2018-05-07 16:47:32.861 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.096 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into level (attack, defense, health, name, position, id_level) values (?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.101 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2018-05-07 16:47:33.115 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [-30]
+2018-05-07 16:47:33.116 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2018-05-07 16:47:33.117 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [None]
+2018-05-07 16:47:33.119 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [0]
+2018-05-07 16:47:33.122 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [1]
+2018-05-07 16:47:33.127 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.129 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into level (attack, defense, health, name, position, id_level) values (?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.130 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [16]
+2018-05-07 16:47:33.131 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [3]
+2018-05-07 16:47:33.131 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [100]
+2018-05-07 16:47:33.131 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Apprentice]
+2018-05-07 16:47:33.131 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2018-05-07 16:47:33.131 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [2]
+2018-05-07 16:47:33.132 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.135 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into level (attack, defense, health, name, position, id_level) values (?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.136 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [28]
+2018-05-07 16:47:33.136 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [6]
+2018-05-07 16:47:33.136 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [150]
+2018-05-07 16:47:33.136 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Soldier]
+2018-05-07 16:47:33.136 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [2]
+2018-05-07 16:47:33.137 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [3]
+2018-05-07 16:47:33.139 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.140 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into level (attack, defense, health, name, position, id_level) values (?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.140 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [44]
+2018-05-07 16:47:33.140 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [9]
+2018-05-07 16:47:33.141 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [300]
+2018-05-07 16:47:33.141 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [General]
+2018-05-07 16:47:33.141 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [3]
+2018-05-07 16:47:33.141 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [4]
+2018-05-07 16:47:33.142 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.143 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into level (attack, defense, health, name, position, id_level) values (?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [62]
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [18]
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [750]
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [God]
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [4]
+2018-05-07 16:47:33.144 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [5]
+2018-05-07 16:47:33.152 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.158 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.159 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [100]
+2018-05-07 16:47:33.159 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [The Sword of Gryffindor]
+2018-05-07 16:47:33.159 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Sword]
+2018-05-07 16:47:33.159 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [6]
+2018-05-07 16:47:33.160 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.165 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.166 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2018-05-07 16:47:33.166 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Tizona]
+2018-05-07 16:47:33.166 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Sword]
+2018-05-07 16:47:33.166 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [7]
+2018-05-07 16:47:33.168 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.170 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.170 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [90]
+2018-05-07 16:47:33.170 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Excalibur]
+2018-05-07 16:47:33.171 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Sword]
+2018-05-07 16:47:33.171 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [8]
+2018-05-07 16:47:33.173 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.174 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.174 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [200]
+2018-05-07 16:47:33.175 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Lightsaber]
+2018-05-07 16:47:33.175 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Sword]
+2018-05-07 16:47:33.175 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [9]
+2018-05-07 16:47:33.176 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.181 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.182 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
+2018-05-07 16:47:33.183 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Red Axe]
+2018-05-07 16:47:33.183 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Axe]
+2018-05-07 16:47:33.183 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [10]
+2018-05-07 16:47:33.184 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.188 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.189 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2018-05-07 16:47:33.189 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Throwing axes]
+2018-05-07 16:47:33.189 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Axe]
+2018-05-07 16:47:33.189 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [11]
+2018-05-07 16:47:33.191 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.192 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.193 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [85]
+2018-05-07 16:47:33.194 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Double-bladed Axe]
+2018-05-07 16:47:33.194 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Axe]
+2018-05-07 16:47:33.194 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [12]
+2018-05-07 16:47:33.195 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.197 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.197 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [175]
+2018-05-07 16:47:33.197 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [The Wrecker of Worlds]
+2018-05-07 16:47:33.197 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Axe]
+2018-05-07 16:47:33.198 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [13]
+2018-05-07 16:47:33.199 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.201 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.202 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [10]
+2018-05-07 16:47:33.202 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Stick]
+2018-05-07 16:47:33.202 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spear]
+2018-05-07 16:47:33.202 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [14]
+2018-05-07 16:47:33.203 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.204 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.213 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [25]
+2018-05-07 16:47:33.214 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Battle Spear]
+2018-05-07 16:47:33.214 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spear]
+2018-05-07 16:47:33.214 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [15]
+2018-05-07 16:47:33.215 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.217 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.218 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [50]
+2018-05-07 16:47:33.218 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [The Spear of Archangel Michael]
+2018-05-07 16:47:33.218 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spear]
+2018-05-07 16:47:33.218 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [16]
+2018-05-07 16:47:33.219 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.220 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into weapon (attack, name, type, id_weapon) values (?, ?, ?, ?)
+2018-05-07 16:47:33.220 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [150]
+2018-05-07 16:47:33.221 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Monkey King Bar]
+2018-05-07 16:47:33.221 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Spear]
+2018-05-07 16:47:33.221 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [17]
+2018-05-07 16:47:33.224 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.226 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.226 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [10]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [60]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Harry Potter]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [6]
+2018-05-07 16:47:33.227 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [18]
+2018-05-07 16:47:33.228 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.231 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.232 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [25]
+2018-05-07 16:47:33.232 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [2]
+2018-05-07 16:47:33.232 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [90]
+2018-05-07 16:47:33.232 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [3]
+2018-05-07 16:47:33.233 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [El Cid]
+2018-05-07 16:47:33.233 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [7]
+2018-05-07 16:47:33.233 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [19]
+2018-05-07 16:47:33.236 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.237 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [5]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [130]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [4]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [King Arthur]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [8]
+2018-05-07 16:47:33.238 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [20]
+2018-05-07 16:47:33.239 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.241 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [70]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [15]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [250]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [5]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Obi-wan]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [9]
+2018-05-07 16:47:33.241 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [21]
+2018-05-07 16:47:33.242 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.244 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.244 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [15]
+2018-05-07 16:47:33.244 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [4]
+2018-05-07 16:47:33.244 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [80]
+2018-05-07 16:47:33.245 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2018-05-07 16:47:33.246 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Fire Fighter]
+2018-05-07 16:47:33.246 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [10]
+2018-05-07 16:47:33.246 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [22]
+2018-05-07 16:47:33.247 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.248 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [60]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [3]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Thief]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [11]
+2018-05-07 16:47:33.249 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [23]
+2018-05-07 16:47:33.252 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.254 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [10]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [200]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [4]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Gimli]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [12]
+2018-05-07 16:47:33.254 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [24]
+2018-05-07 16:47:33.257 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.258 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [80]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [20]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [275]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [5]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Thor]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [13]
+2018-05-07 16:47:33.259 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [25]
+2018-05-07 16:47:33.262 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.263 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.263 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [10]
+2018-05-07 16:47:33.263 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2018-05-07 16:47:33.263 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [70]
+2018-05-07 16:47:33.264 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2018-05-07 16:47:33.264 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Dude]
+2018-05-07 16:47:33.264 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [14]
+2018-05-07 16:47:33.264 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [26]
+2018-05-07 16:47:33.266 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.270 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.271 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [25]
+2018-05-07 16:47:33.271 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [3]
+2018-05-07 16:47:33.271 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [90]
+2018-05-07 16:47:33.272 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [3]
+2018-05-07 16:47:33.272 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Warrior Tribe]
+2018-05-07 16:47:33.272 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [15]
+2018-05-07 16:47:33.272 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [27]
+2018-05-07 16:47:33.273 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.275 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [6]
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [150]
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [4]
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Archangel Michael]
+2018-05-07 16:47:33.275 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [16]
+2018-05-07 16:47:33.276 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [28]
+2018-05-07 16:47:33.277 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2018-05-07 16:47:33.278 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into fighter (attack, defense, heatlh, level_id, name, weapon_id, id_fighter) values (?, ?, ?, ?, ?, ?, ?)
+2018-05-07 16:47:33.279 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [70]
+2018-05-07 16:47:33.279 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [15]
+2018-05-07 16:47:33.279 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [230]
+2018-05-07 16:47:33.279 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [5]
+2018-05-07 16:47:33.280 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Sun Wukong]
+2018-05-07 16:47:33.280 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [17]
+2018-05-07 16:47:33.280 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [29]
+2018-05-07 16:47:33.737  INFO 16008 --- [http-nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-05-07 16:47:34.316 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select fighter0_.id_fighter as id_fight1_0_, fighter0_.attack as attack2_0_, fighter0_.defense as defense3_0_, fighter0_.heatlh as heatlh4_0_, fighter0_.level_id as level_id6_0_, fighter0_.name as name5_0_, fighter0_.weapon_id as weapon_i7_0_ from fighter fighter0_ where fighter0_.name=?
+2018-05-07 16:47:34.318 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Obi-wan]
+2018-05-07 16:47:34.322 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id_fight1_0_] : [BIGINT]) - [21]
+2018-05-07 16:47:34.332 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select fighter0_.id_fighter as id_fight1_0_, fighter0_.attack as attack2_0_, fighter0_.defense as defense3_0_, fighter0_.heatlh as heatlh4_0_, fighter0_.level_id as level_id6_0_, fighter0_.name as name5_0_, fighter0_.weapon_id as weapon_i7_0_ from fighter fighter0_ where fighter0_.name=?
+2018-05-07 16:47:34.333 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Sun Wukong]
+2018-05-07 16:47:34.334 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id_fight1_0_] : [BIGINT]) - [29]
+2018-05-07 16:47:34.335 DEBUG 16008 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select fighter0_.id_fighter as id_fight1_0_, fighter0_.attack as attack2_0_, fighter0_.defense as defense3_0_, fighter0_.heatlh as heatlh4_0_, fighter0_.level_id as level_id6_0_, fighter0_.name as name5_0_, fighter0_.weapon_id as weapon_i7_0_ from fighter fighter0_ where fighter0_.name=?
+2018-05-07 16:47:34.335 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Thor]
+2018-05-07 16:47:34.335 TRACE 16008 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id_fight1_0_] : [BIGINT]) - [25]

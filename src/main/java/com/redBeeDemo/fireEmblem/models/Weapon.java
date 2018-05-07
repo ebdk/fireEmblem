@@ -20,8 +20,8 @@ public class Weapon {
 	@GeneratedValue
 	private Long idWeapon;
 	
-	@OneToMany(mappedBy = "weapon")
-	private List<Fighter> usedBy;
+	@OneToOne(mappedBy = "weapon")
+	private Fighter user;
 	
 	private String name;
 	private int attack;
@@ -67,13 +67,13 @@ public class Weapon {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public List<Fighter> getUsedBy() {
-		return usedBy;
+	public Fighter getUser() {
+		return user;
 	}
-	public void linkFighter(Fighter fighter) {
-		
+	public void setUser(Fighter user) {
+		this.user = user;
 	}
-	
+
 	public void printStats() {
 		System.out.println(this.getName() + "'s type is " + this.getType() + " and can deal " + this.getAttack() + " damage."); 
 	}

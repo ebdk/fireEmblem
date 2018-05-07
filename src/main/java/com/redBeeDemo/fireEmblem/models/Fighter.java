@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +23,7 @@ public class Fighter {
 	@JoinColumn(name = "level_id")
 	private Level level;
 	
-	@ManyToOne()
+	@OneToOne()
 	@JoinColumn(name = "weapon_id")
 	private Weapon weapon;
 	
@@ -85,7 +86,6 @@ public class Fighter {
 	}
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
-		weapon.linkFighter(this);
 	}
 	public String getName() {
 		return name;

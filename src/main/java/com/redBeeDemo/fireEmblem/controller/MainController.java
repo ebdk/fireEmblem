@@ -36,45 +36,57 @@ public class MainController {
 	public MainController() {
 	}
 	
-	private void saveNewLevelEntries() {
+	private void saveAllLevelEntries() {
 		for(Level level : LevelFactory.getLevels()) {
 			daoLevel.save(level);
 		}
+	}
+	private void saveAllFighterEntries() {
+		for(Fighter fighter : FighterFactory.getFighters()) {
+			daoFighter.save(fighter);
+		}
+	}
+	private void saveAllWeaponEntries() {
+		for(Weapon weapon : WeaponFactory.getWeapons()) {
+			daoWeapon.save(weapon);
+		}
+	}
+	private void testWeaponTriangle() {
+		//init();
+		
+		Fighter sw = daoFighter.findByname("Obi-wan").get(0);
+		Fighter sp = daoFighter.findByname("Sun Wukong").get(0);
+		Fighter ax = daoFighter.findByname("Thor").get(0);
+		
+		sw.attack(ax);
+		ax.attack(sp);
+		sp.attack(sw);
+		
+		sw.attack(sp);
+		ax.attack(sw);
+		sp.attack(ax);
+		
+		sw.attack(sw);
+		ax.attack(ax);
+		sp.attack(sp);
 	}
 	
 	public void init() {
 		LevelFactory.createAll();
 		LevelFactory.printAllLevels();
-		saveNewLevelEntries();
+		FighterFactory.createAll();
+		WeaponFactory.printAllWeapons();
+		FighterFactory.printAllFighters();
+		saveAllLevelEntries();
+		saveAllWeaponEntries();
+		saveAllFighterEntries();
+		System.out.println("Done");
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		init();
-
-		Fighter cid = FighterFactory.createElCid2();
-		System.out.println("FIGHTER STATS: " + cid.getName());
-		System.out.println(cid.getLevel().getName());
-		System.out.println(cid.getWeapon().getName());
-		Fighter fig = FighterFactory.createFireFighter2();
-		System.out.println("FIGHTER STATS: " + fig.getName());
-		System.out.println(fig.getLevel().getName());
-		System.out.println(fig.getWeapon().getName());
-		
-		Fighter obi = FighterFactory.createObiWan();
-		
-		System.out.println("----------");
-		cid.attack(obi);
-		System.out.println("----------");
-		System.out.println(cid.getName() + "'s weapon's type is " + cid.getWeapon().getType());
-		System.out.println(obi.getName() + "'s weapon's type is " + obi.getWeapon().getType());
-		System.out.println("----------");
-		obi.attack(fig);
-		System.out.println("----------");
-		fig.attack(obi);
-		System.out.println("----------");
-		System.out.println(fig.getName() + "'s weapon's type is " + fig.getWeapon().getType());
-		
+		testWeaponTriangle();		
 		return "homepage";
 	}
 	

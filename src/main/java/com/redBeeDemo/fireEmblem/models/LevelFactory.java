@@ -3,7 +3,6 @@ package com.redBeeDemo.fireEmblem.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class LevelFactory {
 
@@ -67,7 +66,8 @@ public class LevelFactory {
 	
 	public static void printAllLevels() {
 		for(Level level : levels) {
-			System.out.println("Pos: " + level.getPosition() +" ---- " + "Name: " + level.getName());
+			level.printStats();
+			System.out.println("---------------");
 		}
 	}
 	

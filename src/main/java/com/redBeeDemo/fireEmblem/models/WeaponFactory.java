@@ -3,8 +3,6 @@ package com.redBeeDemo.fireEmblem.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class WeaponFactory {
 
 	static List<Weapon> weapons = new ArrayList<Weapon>();
@@ -58,43 +56,61 @@ public class WeaponFactory {
 		return res;
 	}
 	
-	public static double lookUpWeakness(String attackerWpn, String defenderWpn) {
-		double res = 1;
+	public static String lookUpWeakness(String attackerWpn, String defenderWpn) {
+		String res = "";
 		if(attackerWpn == defenderWpn) {
-			res = 1;
+			res = "Equal";
 		} else {
 			switch(attackerWpn) {
-			case "Sword":
-				switch(defenderWpn){
-					case "Axe": 
-						res = 0.5;
-						break;
-					case "Spear": 
-						res = 2;
-						break;
-				}
-			case "Axe":
-				switch(defenderWpn){
-					case "Sword": 
-						res = 2;
-						break;
-					case "Spear": 
-						res = 0.5;
-						break;
-				}
-			case "Spear":
-				switch(defenderWpn){
-					case "Sword": 
-						res = 0.5;
-						break;
-					case "Axe": 
-						res = 2;
-						break;
-				}
+				//WEAPON: SWORD, STRONG AGAINST AXE BUT WEAK AGAINST SPEAR
+				case "Sword":
+					switch(defenderWpn) {
+						case "Axe": 
+							res = "Strong";
+							break;
+						case "Spear":
+							res = "Weak";
+							break;
+					}
+					break;
+					
+				//WEAPON: AXE, STRONG AGAINST SPEAR BUT WEAK AGAINST SWORD
+				case "Axe":
+					switch(defenderWpn) {
+						case "Sword": 
+							res = "Weak";
+							break;
+						case "Spear":
+							res = "Strong";
+							break;
+					}
+					break;
+					
+				//WEAPON: SPEAR, STRONG AGAINST SWORD BUT WEAK AGAINST AXE
+				case "Spear":
+					switch(defenderWpn) {
+						case "Axe": 
+							res = "Weak";
+							break;
+						case "Sword":
+							res = "Strong";
+							break;
+					}
+					break;
+			}
 		}
-		}
-		
 		return res;
+	}
+	
+	public static List<Weapon> getWeapons(){
+		return weapons;
+	}
+	
+	public static void printAllWeapons() {
+		for(Weapon weapon : weapons) {
+			weapon.printStats();
+			System.out.println("---------------");
+		}
 	}
 	
 }

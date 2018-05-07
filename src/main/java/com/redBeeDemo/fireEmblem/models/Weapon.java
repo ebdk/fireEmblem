@@ -74,14 +74,8 @@ public class Weapon {
 		
 	}
 	
-	/*
-	enum SwAxSp {
-		    Sw("Sword", "Ax"), Sp("Spear", "Sw"), Ax("Axe", "Sp");
-		    private final String beats, name;
-		    SwAxSp(String name, String beats) { this.beats = beats; this.name = name; }
-		    int compare(SwAxSp other) { return other == this? 0 : other == valueOf(beats)? 1 : -1; }
-		    String fullName() { return name; }
-		  }
-		  */
+	public void printStats() {
+		System.out.println(this.getName() + "'s type is " + this.getType() + " and can deal " + this.getAttack() + " damage."); 
+	}
 	
 }

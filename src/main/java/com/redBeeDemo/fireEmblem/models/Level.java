@@ -81,6 +81,8 @@ public class Level {
 		return figthersAtThisLevel;
 	}
 	
-	
+	public void printStats() {
+		System.out.println(this.getPosition()+") " + this.getName() + ": has " + this.getHealth() + " hp, " + this.getAttack() + " for attack and " + this.getDefense() + " for defense.");
+	}
 
 }

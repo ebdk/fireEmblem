@@ -16,7 +16,7 @@ public class Fighter {
 	//ATTRIBUTES
 	@Id
 	@GeneratedValue
-	private double idFighter;
+	private Long idFighter;
 	
 	@ManyToOne()
 	@JoinColumn(name = "level_id")
@@ -27,7 +27,7 @@ public class Fighter {
 	private Weapon weapon;
 	
 	private String name;
-	private double heatlh;
+	private int heatlh;
 	private int defense;
 	private int attack;
 	
@@ -55,10 +55,10 @@ public class Fighter {
 	}
 	
 	//GETTERS AND SETTERS
-	public double getHeatlh() {
+	public int getHeatlh() {
 		return heatlh;
 	}
-	public void setHeatlh(double heatlh) {
+	public void setHeatlh(int heatlh) {
 		this.heatlh = heatlh;
 	}
 	public int getDefense() {
@@ -99,17 +99,28 @@ public class Fighter {
 		int attackPower = this.getAttack();
 		int attackWeapon = this.getWeapon().getAttack();
 		int attackLevel = this.getLevel().getAttack();
-		double advMultiplier = analyzeWeakness(this, opponent);
-
-		double attackTotal = (attackPower + attackWeapon + attackLevel) * advMultiplier;
+		String advMultiplier = analyzeWeakness(this, opponent);
+		
+		
+		int attackTotal;
+		switch(advMultiplier) {
+			case "Strong":
+				attackTotal = (attackPower + attackWeapon + attackLevel) * 2;
+				break;
+			case "Weak":
+				attackTotal = (attackPower + attackWeapon + attackLevel) / 2;
+				break;
+			default:
+				attackTotal = (attackPower + attackWeapon + attackLevel);
+		}
 		
 		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
 
 		opponent.receiveAttack(attackTotal);
-
+		
 	}
 	
-	public void receiveAttack(double attackReceived) {
+	public void receiveAttack(int attackReceived) {
 				
 		int defenseOpponet = this.getDefense();
 		int defenseLevel = this.getLevel().getDefense();
@@ -117,7 +128,7 @@ public class Fighter {
 		int defenseDone = defenseOpponet + defenseLevel;
 		System.out.println(this.getName() + " could protect himself/herself of : " + defenseDone + " damage.");
 		
-		double damageReceived = attackReceived - defenseDone;		
+		int damageReceived = attackReceived - defenseDone;		
 		if (damageReceived > 0) {
 			if(damageReceived <= this.getHeatlh()) {
 				this.setHeatlh(this.getHeatlh() - damageReceived);
@@ -129,18 +140,22 @@ public class Fighter {
 			System.out.println(this.getName() + " now has " + this.getHeatlh() + " hp.");
 		} else {
 			System.out.println((this.getName() + " received no damage at all."));
-		}	
+		}
+		System.out.println("---------------");
 	}
 	
-	public double analyzeWeakness(Fighter attackerWpn, Fighter defenderWpn) {
-		double res = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
-		if(res == 1) {
+	public String analyzeWeakness(Fighter attackerWpn, Fighter defenderWpn) {
+		String res = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
+		if(res == "Equal") {
+			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = TIE");
 			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was the same type of his rival's so no effect was given.");
 		}
-		if(res == 0.5) {
+		if(res == "Weak") {
+			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = " + defenderWpn.getWeapon().getType());
 			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was weaker than of his rival's.");
 		}
-		if(res == 2) {
+		if(res == "Strong") {
+			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = " + attackerWpn.getWeapon().getType());
 			System.out.println("SMAAAAAASH " +this.getName() + "'s " + this.getWeapon().getName() + " was stronger than of this rival's.");
 		}
 		return res;	
@@ -169,5 +184,10 @@ public class Fighter {
 			default:
 				System.out.println("Couldn't modify " + this.getName() + "'s level");
 		}
+	}
+	
+	public void printStats() {
+		System.out.println(this.getName() + "'s level is " + this.getLevel().getName() + " and has " +  this.getWeapon().getName());
+		System.out.println("HP: " + this.getHeatlh() + " Attack: " + this.getAttack() + " Defense: " +this.getDefense());
 	}
 }

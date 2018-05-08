@@ -14,7 +14,7 @@
 <body>
 <script>
 document.getElementById("barOne").style.width = {warrior1porc} + 'px';
-document.getElementById("barTwo").style.width = '@{${warrior2porc}}' + 'px';
+document.getElementById("barTwo").style.width = @{${warrior2porc}} + 'px';
 </script> 
 
 
@@ -57,8 +57,6 @@ document.getElementById("barTwo").style.width = '@{${warrior2porc}}' + 'px';
 <p th:text="${battlemessage1}"></p>
 <p th:text="${battlemessage2}"></p>
 <p th:text="${battlemessage3}"></p>
-<p th:text="${warrior1porc}"></p>
-<p>Ver 16</p>
 </div>
 
 <div class="container">

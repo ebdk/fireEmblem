@@ -28,7 +28,6 @@ public class LevelFactory {
 
 	public static void createAll() {
 		System.out.println("1");
-		createLevel("None", 1, 0, -30, 0);
 		createLevel("Apprentice", 100, 16, 3, 1);
 		createLevel("Soldier", 150,  28, 6, 2);
 		createLevel("General", 300, 44, 9, 3);

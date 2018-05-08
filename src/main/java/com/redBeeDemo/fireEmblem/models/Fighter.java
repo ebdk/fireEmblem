@@ -106,47 +106,67 @@ public class Fighter {
 	public int getTotalHealth() {
 		return totalHealth;
 	}
+	public void setTotalHealth(int totalHealth) {
+		this.totalHealth = totalHealth;
+	}
 	public int getTotalDamage() {
 		return attack + this.getWeapon().getAttack() + this.getLevel().getAttack();
 	}
 	public int getTotalDefense() {
 		return defense + this.getLevel().getDefense();
 	}
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
+	}
 
 	//METHODS
 	public void attack(Fighter opponent) {
 		int attackTotal;
+		//Message 0
+		Messages.addMessage(this.getName() + " is about to hit with an attack of " + this.getTotalDamage());
 		switch(analyzeWeakness(this, opponent)) {
 			case "Strong":
 				attackTotal = this.getTotalDamage() * 2;
+				//Message 1
+				Messages.addMessage("SMAAAAAAASH his weapon was super effective so it caused double damage, dealing " + attackTotal + " of damage.");
 				break;
 			case "Weak":
 				attackTotal = this.getTotalDamage() / 2;
+				//Message 1
+				Messages.addMessage("His weapon was not effective, dealing halved the damage, ending up in doing " + attackTotal + " of damage.");
 				break;
 			default:
 				attackTotal = this.getTotalDamage();
+				//Message 1
+				Messages.addMessage("It landed the hit");
+				
 		}
 		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
 		opponent.receiveAttack(attackTotal);
 	}
 	
 	public void receiveAttack(int attackReceived) {
-				
-		int defenseDone = this.getTotalDefense();
-		System.out.println(this.getName() + " could protect himself/herself of : " + defenseDone + " damage.");
 		
-		int damageReceived = attackReceived - defenseDone;		
+		System.out.println(this.getName() + " could protect himself/herself of : " + this.getTotalDefense() + " damage.");
+		//Message 2
+		Messages.addMessage(this.getName() + " could protect himself/herself of : " + this.getTotalDefense() + " damage.");
+		
+		int damageReceived = attackReceived - this.getTotalDefense();		
 		if (damageReceived > 0) {
-			if(damageReceived <= this.getHealth()) {
-				this.setHealth(this.getHealth() - damageReceived);
+			if(damageReceived <= this.getTotalHealth()) {
+				this.setTotalHealth(this.getTotalHealth() - damageReceived);
 			} else {
-				this.setHealth(0);
+				this.setTotalHealth(0);
+				//DEFEATED
 			}
-			
 			System.out.println(this.getName() + " ended up getting damaged by: " + damageReceived + ".");
-			System.out.println(this.getName() + " now has " + this.getHealth() + " hp.");
+			System.out.println(this.getName() + " now has " + this.getTotalHealth() + " hp.");
+			//Message 3
+			Messages.addMessage(this.getName() + " was damaged by " + damageReceived + " so it now has " + this.getTotalHealth() + " HPs");
 		} else {
 			System.out.println((this.getName() + " received no damage at all."));
+			//Message 3
+			Messages.addMessage(this.getName() + " received no damage at all. So it's health is still at " + this.getTotalHealth());
 		}
 		System.out.println("---------------");
 	}
@@ -187,21 +207,34 @@ public class Fighter {
 	public void modifyLevel(String upOrDown) {
 		switch(upOrDown) {
 			case "up" :
-				if(LevelFactory.getLevels().size() - 1 == this.getLevel().getPosition()) {
+				if(LevelFactory.getLevels().size() == this.getLevel().getPosition()) {
 					System.out.println("Couldn't modify " + this.getName() + "'s level");
 					System.out.println("Reason: His level was alredy the highest");
+					//Message 0
+					Messages.addMessage(this.getName() + " tried to level up but he was alredy at the highest level");
 				} else {
 					Level lvlUp = LevelFactory.lookUpLvl(this.getLevel().getPosition() + 1);
+					//Message 0
+					Messages.addMessage(this.getName() + " leveled up, going from " + this.getLevel().getName() + " to " + lvlUp.getName());
 					this.setLevel(lvlUp);
+					this.setTotalHealth(health + level.getHealth());
+					this.setMaxHealth(this.getTotalHealth());
 				}
 				break;
 			case "down" :
-				if(0 == this.getLevel().getPosition()) {
+				if(1 == this.getLevel().getPosition()) {
 					System.out.println("Couldn't modify " + this.getName() + "'s level");
 					System.out.println("Reason: His level was alredy the lowest");
+					//Message 1
+					Messages.addMessage(this.getName() + " tried to level down but he was alredy at the lowest level");
+					this.setTotalHealth(this.getMaxHealth());
 				} else {
 					Level lvlDown = LevelFactory.lookUpLvl(this.getLevel().getPosition() - 1);
+					//Message 1
+					Messages.addMessage(this.getName() + " leveled down, going from " + this.getLevel().getName() + " to " + lvlDown.getName());
 					this.setLevel(lvlDown);
+					this.setTotalHealth(health + level.getHealth());
+					this.setMaxHealth(this.getTotalHealth());
 				}
 				break;
 			default:

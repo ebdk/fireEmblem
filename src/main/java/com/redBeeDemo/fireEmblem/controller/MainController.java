@@ -1,5 +1,6 @@
 package com.redBeeDemo.fireEmblem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ import com.redBeeDemo.fireEmblem.models.FighterFactory;
 import com.redBeeDemo.fireEmblem.models.Fighter;
 import com.redBeeDemo.fireEmblem.models.WeaponFactory;
 import com.redBeeDemo.fireEmblem.models.Weapon;
+import com.redBeeDemo.fireEmblem.models.Messages;
 
 @Controller
 public class MainController {
@@ -83,19 +85,22 @@ public class MainController {
 		System.out.println("Done");
 	}
 
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		init();
 		//testWeaponTriangle();	
-		String str0 = "You have been playing " + Simulator.getGameNumber() + " times alredy.";
+		return "homepage";
+	}
+	@RequestMapping(value = "/showwarriors", method = RequestMethod.POST)
+	public String showWarriors(Model model) {
+
 		String str2 = "";
 		String str1 = "Please choose a warrior:";
-		model.addAttribute("message0", str0);
+		model.addAttribute("message0", "You have been playing " + Simulator.getGameNumber() + " times alredy.");
 		model.addAttribute("message1", str1);
 		model.addAttribute("message2", str2);
 		model.addAttribute("allWarriors", daoFighter.findAll());
-		return "homepage";
+		return "warrior1selection";
 	}	
 	@RequestMapping(value = "/getwarrior", method = RequestMethod.GET)
 	public String getWarrior(Model model, @RequestParam Long id){
@@ -105,14 +110,13 @@ public class MainController {
 		//de Hibernate
 		Simulator.setFighter1(player1);
 		
-		String str0 = "You have been playing " + Simulator.getGameNumber() + " times alredy.";
 		String str2 = "Chosen warrior: " + Simulator.getFighter1().getName();
 		String str1 = "Please choose a warrior:";
-		model.addAttribute("message0", str0);
+		model.addAttribute("message0", "You have been playing " + Simulator.getGameNumber() + " times alredy.");
 		model.addAttribute("message1", str1);
 		model.addAttribute("message2", str2);
 		model.addAttribute("allWarriors", daoFighter.findAll());
-		return "page2";
+		return "warrior2selection";
 	}
 	@RequestMapping(value = "/getwarrior2", method = RequestMethod.GET)
 	public String getWarrior2(Model model, @RequestParam Long id){
@@ -120,13 +124,80 @@ public class MainController {
 		Fighter player2 = daoFighter.findById(id).get(); 
 		Simulator.setFigther2(player2);
 		
-		String str0 = "You have been playing " + Simulator.getGameNumber() + " times alredy.";
-		String str1 = "Chosen warrior: " + Simulator.getFighter1().getName();
-		String str2 = "Chosen adversary: " + Simulator.getFigther2().getName();
-		model.addAttribute("message0", str0);
+		String str1 = Simulator.getFighter1().getName() + ": " + Simulator.getFighter1().getTotalHealth() + "/" + Simulator.getFighter1().getMaxHealth();
+		String str2 = Simulator.getFigther2().getName() + ": " + Simulator.getFigther2().getTotalHealth() + "/" + Simulator.getFigther2().getMaxHealth();
+		model.addAttribute("war", player2);
+		model.addAttribute("message0", "You have been playing " + Simulator.getGameNumber() + " times alredy.");
 		model.addAttribute("message1", str1);
 		model.addAttribute("message2", str2);
-		return "page3";
+		return "fightprologue";
+	}
+	
+	@RequestMapping(value = "/engage", method = RequestMethod.POST)
+	public String engage(Model model) {
+		
+		if(Simulator.getFighter1().getTotalHealth() == 0 || Simulator.getFigther2().getTotalHealth() == 0) {
+			model.addAttribute("message0", "After " + Simulator.getTurnNumber() + " long turns the battle concluded in a winner.");
+			return "endfight";
+		}
+		
+		if(Simulator.isInOddTurn()) {
+			Simulator.getFighter1().attack(Simulator.getFigther2());
+		} else {
+			Simulator.getFigther2().attack(Simulator.getFighter1());
+		}
+				
+		String str1 = Simulator.getFighter1().getName() + ": " + Simulator.getFighter1().getTotalHealth() + "/" + Simulator.getFighter1().getMaxHealth();
+		String str2 = Simulator.getFigther2().getName() + ": " + Simulator.getFigther2().getTotalHealth() + "/" + Simulator.getFigther2().getMaxHealth();
+		model.addAttribute("message0", "Turn number: " + Simulator.getTurnNumber() + ".");
+		model.addAttribute("message1", str1);
+		model.addAttribute("message2", str2);
+		
+		model.addAttribute("battlemessage0", Messages.getMessage0());
+		model.addAttribute("battlemessage1", Messages.getMessage1());
+		model.addAttribute("battlemessage2", Messages.getMessage2());
+		model.addAttribute("battlemessage3", Messages.getMessage3());
+		
+		Simulator.nextTurn();
+		Messages.empty();
+		return "fight";
+	}
+	
+	@RequestMapping(value = "/showwinner", method = RequestMethod.POST)
+	
+	
+	public String showWinner(Model model) {
+		Fighter winner = null;
+		Fighter loser = null;
+		if(Simulator.getFighter1().getTotalHealth() > Simulator.getFigther2().getTotalHealth()) {
+			winner = Simulator.getFighter1();
+			loser = Simulator.getFigther2();
+		} else {
+			loser = Simulator.getFighter1();
+			winner = Simulator.getFigther2();
+		}
+		
+		winner.modifyLevel("up");
+		loser.modifyLevel("down");
+		
+		if(winner.getIdFighter().equals(loser.getIdFighter())) {
+			Messages.empty();
+			Messages.addMessage(winner.getName() + " waved goodbye to his clone.");
+			Messages.addMessage("He learnt nothing from today's fight, so his level was kept intact");
+		} else {
+			daoFighter.save(winner);
+			daoFighter.save(loser);
+		}
+
+		
+		model.addAttribute("message1", winner.getName());
+		model.addAttribute("message2", "And " + loser.getName() + " lost ...");
+		Simulator.endGame();
+		
+		model.addAttribute("battlemessage0", Messages.getMessage0());
+		model.addAttribute("battlemessage1", Messages.getMessage1());
+		Messages.empty();
+		return "winner";
 	}
 	
 }

@@ -11,12 +11,18 @@
 
 <h1>Fire Emblem Demo</h1>
 <h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
-<h5 th:text="${message0}"></h5>
-<p th:text="${message1}"></p>
-<p th:text="${message2}"></p>
+<h2>---------------------------------------------------------------------</h2>
+<p th:text="${message0}"></p>
+<p>----------------------</p>
+<h3 th:text="${message1}"></h3>
+<h3 th:text="${message2}"></h3>
+<h3>----------------------</h3>
 
-<p></p>
+<p>These fighters will now clash into battle ...</p>
 
+<form class="button" th:action="@{/engage}" method="POST">
+<input type="submit" value="Continue"/>
+</form>
 
 </body>
 </html>

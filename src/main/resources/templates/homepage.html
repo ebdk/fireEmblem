@@ -9,38 +9,24 @@
 
 <body>
 
+<h1>WELCOME TO</h1>
 <h1>Fire Emblem Demo</h1>
 <h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
-<h3 th:text="${message0}"></h3>
-<p th:text="${message1}"></p>
-<p th:text="${message2}"></p>
+<h2>---------------------------------------------------------------------</h2>
+<p>This was a demo proyect made by Esteban Bedecarats</p>
+<p>The "game" consists of choosing two warriors and make them fight to death</p>
+<p>The winner will level up, the looser will level down</p>
+<p>Levels grant additional Health, Attack and Defense points</p>
+<p>Another point to consider are the Weapons, where are many but only 3 types:</p>
+<p>You need to know this:</p>
+<p>-Swords beat Axes but they are weak against Spears</p>
+<p>-Axes beat Spears but they are weak against Swords</p>
+<p>-Spears beat Swords but they are weak against Axes</p>
+<p>To start, press the "Start" button which will lead to the warriors selection screen</p>
 
-<p></p>
-
-<table class="table table-striped">
-<tr>
-	<th>Id</th>
-	<th>Name</th>
-	<th>Rank</th>
-	<th>Weapon</th>
-	<th>Weapon Type</th>
-	<th>Health</th>
-	<th>Attack</th>
-	<th>Defense</th>
-	<!-- th>-</th> -->
-</tr>
-<tr th:each="warrior:${allWarriors}">
-	<td th:text="${warrior.getIdFighter()}"></td>
-	<td th:text="${warrior.getName()}"></td> 
-	<td th:text="${warrior.getLevel().getName()}"></td> 
-	<td th:text="${warrior.getWeapon().getName()}"></td> 
-	<td th:text="${warrior.getWeapon().getType()}"></td> 
-	<td th:text="${warrior.getTotalHealth()}"></td>
-	<td th:text="${warrior.getTotalDamage()}"></td>
-	<td th:text="${warrior.getTotalDefense()}"></td>
-	<td> <a class="btn btn-danger" th:href="@{/getwarrior(id=${warrior.getIdFighter()})}">Choose</a> </td>
-</tr>
-</table>
+<form class="button" th:action="@{/showwarriors}" method="POST">
+<input type="submit" value="Start"/>
+</form>
 
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+<title>Page Title</title>
+</head>
+
+<body>
+
+<h1>Fire Emblem Demo</h1>
+<h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
+<h2>---------------------------------------------------------------------</h2>
+<p th:text="${message0}"></p>
+<p>----------------------</p>
+<p th:text="${message1}"></p>
+<p th:text="${message2}"></p>
+
+<table class="table table-striped">
+<tr>
+	<th>Name</th>
+	<th>Rank</th>
+	<th>Weapon</th>
+	<th>Weapon Type</th>
+	<th>Health</th>
+	<th>Attack</th>
+	<th>Defense</th>
+	<!-- th>-</th> -->
+</tr>
+<tr th:each="warrior:${allWarriors}">
+	<td th:text="${warrior.getName()}"></td> 
+	<td th:text="${warrior.getLevel().getName()}"></td> 
+	<td th:text="${warrior.getWeapon().getName()}"></td> 
+	<td th:text="${warrior.getWeapon().getType()}"></td> 
+	<td th:text="${warrior.getTotalHealth()}"></td>
+	<td th:text="${warrior.getTotalDamage()}"></td>
+	<td th:text="${warrior.getTotalDefense()}"></td>
+	<td> <a class="btn btn-danger" th:href="@{/getwarrior(id=${warrior.getIdFighter()})}">Choose</a> </td>
+</tr>
+</table>
+
+</body>
+</html>

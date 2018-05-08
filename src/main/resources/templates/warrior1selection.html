@@ -2,22 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
-<title>Page Title</title>
+  <title>First Warrior Selection</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<h1>Fire Emblem Demo</h1>
-<h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
-<h2>---------------------------------------------------------------------</h2>
-<p th:text="${message0}"></p>
-<p>----------------------</p>
-<p th:text="${message1}"></p>
-<p th:text="${message2}"></p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>WELCOME TO Fire Emblem Demo</h1>      
+    <p>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</p>
+  </div>
+  <p th:text="${message0}"></p>
+  <p th:text="${message1}"></p>
+  <p th:text="${message2}"></p>
+</div>
 
-<table class="table table-striped">
+<div class="container">
+<table class="table table-dark table-hover">
 <tr>
 	<th>Name</th>
 	<th>Rank</th>
@@ -26,7 +33,6 @@
 	<th>Health</th>
 	<th>Attack</th>
 	<th>Defense</th>
-	<!-- th>-</th> -->
 </tr>
 <tr th:each="warrior:${allWarriors}">
 	<td th:text="${warrior.getName()}"></td> 
@@ -39,6 +45,7 @@
 	<td> <a class="btn btn-danger" th:href="@{/getwarrior(id=${warrior.getIdFighter()})}">Choose</a> </td>
 </tr>
 </table>
+</div>
 
 </body>
 </html>

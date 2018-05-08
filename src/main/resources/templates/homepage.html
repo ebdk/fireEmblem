@@ -2,31 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
-<title>Page Title</title>
+  <title>Fire Emblem Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<h1>WELCOME TO</h1>
-<h1>Fire Emblem Demo</h1>
-<h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
-<h2>---------------------------------------------------------------------</h2>
-<p>This was a demo proyect made by Esteban Bedecarats</p>
-<p>The "game" consists of choosing two warriors and make them fight to death</p>
-<p>The winner will level up, the looser will level down</p>
-<p>Levels grant additional Health, Attack and Defense points</p>
-<p>Another point to consider are the Weapons, where are many but only 3 types:</p>
-<p>You need to know this:</p>
-<p>-Swords beat Axes but they are weak against Spears</p>
-<p>-Axes beat Spears but they are weak against Swords</p>
-<p>-Spears beat Swords but they are weak against Axes</p>
-<p>To start, press the "Start" button which will lead to the warriors selection screen</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>WELCOME TO Fire Emblem Demo</h1>      
+    <p>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</p>
+  </div>
+  <p>This was a demo proyect made by Esteban Bedecarats</p>    
+  <p>The "game" consists of choosing two warriors and make them fight to death</p>
+  <p>The winner will level up, the looser will level down</p>
+  <p>Levels grant additional Health, Attack and Defense points</p>
+  <p>Another point to consider are the Weapons, where are many but only 3 types:</p>
+  <p>You need to know this:</p>
+  <p>-Swords beat Axes but they are weak against Spears</p>
+  <p>-Axes beat Spears but they are weak against Swords</p>
+  <p>-Spears beat Swords but they are weak against Axes</p>
+  <p>To start, press the "Start" button which will lead to the warriors selection screen</p>
+</div>
 
-<form class="button" th:action="@{/showwarriors}" method="POST">
-<input type="submit" value="Start"/>
-</form>
+
+<div class="container">
+  <form th:action="@{/showwarriors}" method="POST">
+    <button type="submit" class="btn btn-primary">Start</button>
+  </form>
+</div>
 
 </body>
 </html>

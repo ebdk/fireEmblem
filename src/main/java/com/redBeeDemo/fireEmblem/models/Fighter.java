@@ -33,6 +33,7 @@ public class Fighter {
 	private int totalHealth;
 	private int defense;
 	private int attack;
+	private String imgUrl;
 	
 	//CONSTRUCTORS
 	public Fighter() {
@@ -47,6 +48,17 @@ public class Fighter {
 		this.level = level;
 		this.totalHealth = health + level.getHealth();
 		this.maxHealth = totalHealth;
+	}
+	public Fighter(Level level, Weapon weapon, String name, int health,int attack, int defense, String url) {
+		this.name = name;
+		this.health = health;
+		this.defense = defense;
+		this.attack = attack;
+		this.weapon = weapon;
+		this.level = level;
+		this.totalHealth = health + level.getHealth();
+		this.maxHealth = totalHealth;
+		this.imgUrl = url;
 	}
 	public Fighter(Level level, Weapon weapon) {
 		this.level = level;
@@ -118,6 +130,13 @@ public class Fighter {
 	public void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
 	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 
 	//METHODS
 	public void attack(Fighter opponent) {

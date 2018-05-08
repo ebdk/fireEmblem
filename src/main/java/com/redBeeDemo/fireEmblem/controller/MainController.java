@@ -158,6 +158,9 @@ public class MainController {
 		model.addAttribute("battlemessage2", Messages.getMessage2());
 		model.addAttribute("battlemessage3", Messages.getMessage3());
 		
+		model.addAttribute("warrior1url", Simulator.getFighter1().getImgUrl());
+		model.addAttribute("warrior2url", Simulator.getFigther2().getImgUrl());
+		
 		Simulator.nextTurn();
 		Messages.empty();
 		return "fight";

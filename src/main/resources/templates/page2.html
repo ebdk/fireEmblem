@@ -11,7 +11,7 @@
 
 <h1>Fire Emblem Demo</h1>
 <h2>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</h2>
-<h3 th:text="${message0}"></h3>
+<h5 th:text="${message0}"></h5>
 <p th:text="${message1}"></p>
 <p th:text="${message2}"></p>
 
@@ -38,7 +38,7 @@
 	<td th:text="${warrior.getTotalHealth()}"></td>
 	<td th:text="${warrior.getTotalDamage()}"></td>
 	<td th:text="${warrior.getTotalDefense()}"></td>
-	<td> <a class="btn btn-danger" th:href="@{/getwarrior(id=${warrior.getIdFighter()})}">Choose</a> </td>
+	<td> <a class="btn btn-danger" th:href="@{/getwarrior2(id=${warrior.getIdFighter()})}">Choose</a> </td>
 </tr>
 </table>
 

@@ -29,14 +29,14 @@
 	<td th:text="${message2}"></td> 
 </tr>
 <tr>
-	<td><img src="#" th:src="@{ ${warrior1url} }" width="200" height="200" /></td>
-	<td><img src="#" th:src="@{ ${warrior2url} }" width="200" height="200" /></td>
+	<td><img src="#" th:src="@{ ${warrior1url} }" width="250" height="250" /></td>
+	<td><img src="#" th:src="@{ ${warrior2url} }" width="250" height="250" /></td>
 </tr>
 	<td><div class="progress">
-  <div class="progress-bar" style="width:70%">70%</div>
+  <div class="progress-bar" style="width:${warrior1porc}%">th:text="${warrior1porc}%</div>
 </div></td>
 	<td><div class="progress">
-  <div class="progress-bar" style="width:70%">70%</div>
+  <div class="progress-bar" style="width:${warrior2porc}%">th:text="${warrior2porc}%</div>
 </div></td>
 </table>
 </div>

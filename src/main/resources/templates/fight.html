@@ -12,6 +12,11 @@
 </head>
 
 <body>
+<script>
+document.getElementById("barOne").style.width = {warrior1porc} + 'px';
+document.getElementById("barTwo").style.width = '@{${warrior2porc}}' + 'px';
+</script> 
+
 
 <div class="container">
   <div class="jumbotron">
@@ -32,12 +37,18 @@
 	<td><img src="#" th:src="@{ ${warrior1url} }" width="250" height="250" /></td>
 	<td><img src="#" th:src="@{ ${warrior2url} }" width="250" height="250" /></td>
 </tr>
-	<td><div class="progress">
-  <div class="progress-bar" style="width:${warrior1porc}%">${warrior1porc}%</div>
-</div></td>
-	<td><div class="progress">
-  <div class="progress-bar" style="width:${warrior2porc}%">${warrior2porc}%</div>
-</div></td>
+<tr>
+	<td>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" id="barOne" style="width: 100%"></div>
+  </div>
+	</td>
+	<td>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" id="barTwo" style="width: 100%"></div>
+  </div>
+	</td>
+</tr>
 </table>
 </div>
 
@@ -46,6 +57,8 @@
 <p th:text="${battlemessage1}"></p>
 <p th:text="${battlemessage2}"></p>
 <p th:text="${battlemessage3}"></p>
+<p th:text="${warrior1porc}"></p>
+<p>Ver 16</p>
 </div>
 
 <div class="container">

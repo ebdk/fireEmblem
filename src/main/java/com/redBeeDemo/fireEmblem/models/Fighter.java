@@ -136,7 +136,7 @@ public class Fighter {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public double getPorcent() {
+	public int getPorcent() {
 		return ((totalHealth * 100) / maxHealth);
 	}
 

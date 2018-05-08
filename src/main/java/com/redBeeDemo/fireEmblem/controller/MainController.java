@@ -149,7 +149,7 @@ public class MainController {
 				
 		String str1 = Simulator.getFighter1().getName() + ": " + Simulator.getFighter1().getTotalHealth() + "/" + Simulator.getFighter1().getMaxHealth();
 		String str2 = Simulator.getFigther2().getName() + ": " + Simulator.getFigther2().getTotalHealth() + "/" + Simulator.getFigther2().getMaxHealth();
-		model.addAttribute("message0", "Turn number: " + Simulator.getTurnNumber() + ".");
+		model.addAttribute("message0", "Turn number: " + Simulator.getTurnNumber());
 		model.addAttribute("message1", str1);
 		model.addAttribute("message2", str2);
 		
@@ -160,6 +160,7 @@ public class MainController {
 		
 		model.addAttribute("warrior1url", Simulator.getFighter1().getImgUrl());
 		model.addAttribute("warrior2url", Simulator.getFigther2().getImgUrl());
+		
 		
 		model.addAttribute("warrior1porc", Simulator.getFighter1().getPorcent());
 		model.addAttribute("warrior2porc", Simulator.getFigther2().getPorcent());
@@ -184,6 +185,8 @@ public class MainController {
 		}
 		
 		winner.modifyLevel("up");
+		model.addAttribute("winnerurl", winner.getImgUrl());
+		System.out.println(winner.getImgUrl());
 		loser.modifyLevel("down");
 		
 		if(winner.getIdFighter().equals(loser.getIdFighter())) {

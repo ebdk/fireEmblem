@@ -161,6 +161,9 @@ public class MainController {
 		model.addAttribute("warrior1url", Simulator.getFighter1().getImgUrl());
 		model.addAttribute("warrior2url", Simulator.getFigther2().getImgUrl());
 		
+		model.addAttribute("warrior1porc", Simulator.getFighter1().getPorcent());
+		model.addAttribute("warrior2porc", Simulator.getFigther2().getPorcent());
+		
 		Simulator.nextTurn();
 		Messages.empty();
 		return "fight";

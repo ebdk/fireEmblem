@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Fire Emblem Homepage</title>
+  <title>Show Winner</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -18,22 +18,16 @@
     <h1>WELCOME TO Fire Emblem Demo</h1>      
     <p>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</p>
   </div>
-  <p>This was a demo proyect made by Esteban Bedecarats</p>    
-  <p>The "game" consists of choosing two warriors and make them fight to death</p>
-  <p>The winner will level up, the looser will level down</p>
-  <p>Levels grant additional Health, Attack and Defense points</p>
-  <p>Another point to consider are the Weapons, where are many but only 3 types:</p>
-  <p>You need to know this:</p>
-  <p>-Swords beat Axes but they are weak against Spears</p>
-  <p>-Axes beat Spears but they are weak against Swords</p>
-  <p>-Spears beat Swords but they are weak against Axes</p>
-  <p>To start, press the "Start" button which will lead to the warriors selection screen</p>
+  <p>THE WINNER IS:</p>
+  <p th:text="${message1}"></p>
+  <p th:text="${message2}"></p>
+  <p th:text="${battlemessage0}"></p>
+  <p th:text="${battlemessage1}"></p>
 </div>
-
 
 <div class="container">
   <form th:action="@{/showwarriors}" method="POST">
-    <button type="submit" class="btn btn-primary">Start</button>
+    <button type="submit" class="btn btn-primary">Continue</button>
   </form>
 </div>
 

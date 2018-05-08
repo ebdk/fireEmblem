@@ -28,39 +28,55 @@ public class Fighter {
 	private Weapon weapon;
 	
 	private String name;
-	private int heatlh;
+	private int health;
+	private int maxHealth;
+	private int totalHealth;
 	private int defense;
 	private int attack;
+	private String imgUrl;
 	
 	//CONSTRUCTORS
 	public Fighter() {
 	}
 	
-	public Fighter(Level level, Weapon weapon, String name, int heatlh,int attack, int defense) {
+	public Fighter(Level level, Weapon weapon, String name, int health,int attack, int defense) {
 		this.name = name;
-		this.heatlh = heatlh;
+		this.health = health;
 		this.defense = defense;
 		this.attack = attack;
-		this.setWeapon(weapon);
+		this.weapon = weapon;
 		this.level = level;
+		this.totalHealth = health + level.getHealth();
+		this.maxHealth = totalHealth;
+	}
+	public Fighter(Level level, Weapon weapon, String name, int health,int attack, int defense, String url) {
+		this.name = name;
+		this.health = health;
+		this.defense = defense;
+		this.attack = attack;
+		this.weapon = weapon;
+		this.level = level;
+		this.totalHealth = health + level.getHealth();
+		this.maxHealth = totalHealth;
+		this.imgUrl = url;
 	}
 	public Fighter(Level level, Weapon weapon) {
 		this.level = level;
 		this.weapon = weapon;
 	}
-	public Fighter(String name, int heatlh, int defense, int attack) {
+	public Fighter(String name, int health, int defense, int attack) {
 		this.name = name;
-		this.heatlh = heatlh;
+		this.health = health;
 		this.defense = defense;
 		this.attack = attack;
 	}
 	
 	//GETTERS AND SETTERS
-	public int getHeatlh() {
-		return heatlh;
+	public int getHealth() {
+		return health;
 	}
-	public void setHeatlh(int heatlh) {
-		this.heatlh = heatlh;
+	public void setHealth(int health) {
+		this.health = health;
 	}
 	public int getDefense() {
 		return defense;
@@ -93,53 +109,85 @@ public class Fighter {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public Long getIdFighter() {
+		return idFighter;
+	}
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+	public int getTotalHealth() {
+		return totalHealth;
+	}
+	public void setTotalHealth(int totalHealth) {
+		this.totalHealth = totalHealth;
+	}
+	public int getTotalDamage() {
+		return attack + this.getWeapon().getAttack() + this.getLevel().getAttack();
+	}
+	public int getTotalDefense() {
+		return defense + this.getLevel().getDefense();
+	}
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	public double getPorcent() {
+		return ((totalHealth * 100) / maxHealth);
+	}
+
 	//METHODS
 	public void attack(Fighter opponent) {
-		int attackPower = this.getAttack();
-		int attackWeapon = this.getWeapon().getAttack();
-		int attackLevel = this.getLevel().getAttack();
-		String advMultiplier = analyzeWeakness(this, opponent);
-		
-		
 		int attackTotal;
-		switch(advMultiplier) {
+		//Message 0
+		Messages.addMessage(this.getName() + " is about to hit with an attack of " + this.getTotalDamage());
+		switch(analyzeWeakness(this, opponent)) {
 			case "Strong":
-				attackTotal = (attackPower + attackWeapon + attackLevel) * 2;
+				attackTotal = this.getTotalDamage() * 2;
+				//Message 1
+				Messages.addMessage("SMAAAAAAASH his weapon was super effective so it caused double damage, dealing " + attackTotal + " of damage.");
 				break;
 			case "Weak":
-				attackTotal = (attackPower + attackWeapon + attackLevel) / 2;
+				attackTotal = this.getTotalDamage() / 2;
+				//Message 1
+				Messages.addMessage("His weapon was not effective, dealing halved the damage, ending up in doing " + attackTotal + " of damage.");
 				break;
 			default:
-				attackTotal = (attackPower + attackWeapon + attackLevel);
+				attackTotal = this.getTotalDamage();
+				//Message 1
+				Messages.addMessage("It landed the hit");
+				
 		}
-		
 		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
-
 		opponent.receiveAttack(attackTotal);
-		
 	}
 	
 	public void receiveAttack(int attackReceived) {
-				
-		int defenseOpponet = this.getDefense();
-		int defenseLevel = this.getLevel().getDefense();
 		
-		int defenseDone = defenseOpponet + defenseLevel;
-		System.out.println(this.getName() + " could protect himself/herself of : " + defenseDone + " damage.");
+		System.out.println(this.getName() + " could protect himself/herself of : " + this.getTotalDefense() + " damage.");
+		//Message 2
+		Messages.addMessage(this.getName() + " could protect himself/herself of : " + this.getTotalDefense() + " damage.");
 		
-		int damageReceived = attackReceived - defenseDone;		
+		int damageReceived = attackReceived - this.getTotalDefense();		
 		if (damageReceived > 0) {
-			if(damageReceived <= this.getHeatlh()) {
-				this.setHeatlh(this.getHeatlh() - damageReceived);
+			if(damageReceived <= this.getTotalHealth()) {
+				this.setTotalHealth(this.getTotalHealth() - damageReceived);
 			} else {
-				this.setHeatlh(0);
+				this.setTotalHealth(0);
+				//DEFEATED
 			}
-			
 			System.out.println(this.getName() + " ended up getting damaged by: " + damageReceived + ".");
-			System.out.println(this.getName() + " now has " + this.getHeatlh() + " hp.");
+			System.out.println(this.getName() + " now has " + this.getTotalHealth() + " hp.");
+			//Message 3
+			Messages.addMessage(this.getName() + " was damaged by " + damageReceived + " so it now has " + this.getTotalHealth() + " HPs");
 		} else {
 			System.out.println((this.getName() + " received no damage at all."));
+			//Message 3
+			Messages.addMessage(this.getName() + " received no damage at all. So it's health is still at " + this.getTotalHealth());
 		}
 		System.out.println("---------------");
 	}
@@ -161,24 +209,53 @@ public class Fighter {
 		return res;	
 	}
 	
+	public String getMessage1FromWeakness(Fighter attackerWpn, Fighter defenderWpn) {
+		String aux = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
+		String res = "";
+		if(aux == "Equal") {
+			res = this.getName() + "'s " + this.getWeapon().getName() + " was the same type of his rival's so no effect was given.";
+		}
+		if(aux == "Weak") {
+			res = this.getName() + "'s " + this.getWeapon().getName() + " was weaker than of his rival's.";
+		}
+		
+		if(aux == "Strong") {
+			res = "SMAAAAAASH " +this.getName() + "'s " + this.getWeapon().getName() + " was stronger than of this rival's.";
+		}
+		return res;	
+	}
+	
 	public void modifyLevel(String upOrDown) {
 		switch(upOrDown) {
 			case "up" :
-				if(LevelFactory.getLevels().size() - 1 == this.getLevel().getPosition()) {
+				if(LevelFactory.getLevels().size() == this.getLevel().getPosition()) {
 					System.out.println("Couldn't modify " + this.getName() + "'s level");
 					System.out.println("Reason: His level was alredy the highest");
+					//Message 0
+					Messages.addMessage(this.getName() + " tried to level up but he was alredy at the highest level");
 				} else {
 					Level lvlUp = LevelFactory.lookUpLvl(this.getLevel().getPosition() + 1);
+					//Message 0
+					Messages.addMessage(this.getName() + " leveled up, going from " + this.getLevel().getName() + " to " + lvlUp.getName());
 					this.setLevel(lvlUp);
+					this.setTotalHealth(health + level.getHealth());
+					this.setMaxHealth(this.getTotalHealth());
 				}
 				break;
 			case "down" :
-				if(0 == this.getLevel().getPosition()) {
+				if(1 == this.getLevel().getPosition()) {
 					System.out.println("Couldn't modify " + this.getName() + "'s level");
 					System.out.println("Reason: His level was alredy the lowest");
+					//Message 1
+					Messages.addMessage(this.getName() + " tried to level down but he was alredy at the lowest level");
+					this.setTotalHealth(this.getMaxHealth());
 				} else {
 					Level lvlDown = LevelFactory.lookUpLvl(this.getLevel().getPosition() - 1);
+					//Message 1
+					Messages.addMessage(this.getName() + " leveled down, going from " + this.getLevel().getName() + " to " + lvlDown.getName());
 					this.setLevel(lvlDown);
+					this.setTotalHealth(health + level.getHealth());
+					this.setMaxHealth(this.getTotalHealth());
 				}
 				break;
 			default:
@@ -188,6 +265,6 @@ public class Fighter {
 	
 	public void printStats() {
 		System.out.println(this.getName() + "'s level is " + this.getLevel().getName() + " and has " +  this.getWeapon().getName());
-		System.out.println("HP: " + this.getHeatlh() + " Attack: " + this.getAttack() + " Defense: " +this.getDefense());
+		System.out.println("HP: " + this.getHealth() + " Attack: " + this.getAttack() + " Defense: " +this.getDefense());
 	}
 }

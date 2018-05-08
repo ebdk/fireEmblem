@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Prologue</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>WELCOME TO Fire Emblem Demo</h1>      
+    <p>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</p>
+  </div>
+  <p th:text="${message0}"></p>
+  <p th:text="${message1}"></p>
+  <p th:text="${message2}"></p>
+  <p>These fighters will now clash into battle ...</p>
+</div>
+
+<div class="container">
+  <form th:action="@{/engage}" method="POST">
+    <button type="submit" class="btn btn-primary">Continue</button>
+  </form>
+</div>
+
+</body>
+</html>

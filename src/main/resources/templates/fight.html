@@ -15,7 +15,7 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>WELCOME TO Fire Emblem Demo</h1>      
+    <h1>Fire Emblem Demo</h1>      
     <p>A Fire Emblem simulator demo, to try Levels and Weapons with Fighters</p>
   </div>
   <p th:text="${message0}"></p>
@@ -33,10 +33,10 @@
 	<td><img src="#" th:src="@{ ${warrior2url} }" width="250" height="250" /></td>
 </tr>
 	<td><div class="progress">
-  <div class="progress-bar" style="width:${warrior1porc}%">th:text="${warrior1porc}%</div>
+  <div class="progress-bar" style="width:${warrior1porc}%">${warrior1porc}%</div>
 </div></td>
 	<td><div class="progress">
-  <div class="progress-bar" style="width:${warrior2porc}%">th:text="${warrior2porc}%</div>
+  <div class="progress-bar" style="width:${warrior2porc}%">${warrior2porc}%</div>
 </div></td>
 </table>
 </div>

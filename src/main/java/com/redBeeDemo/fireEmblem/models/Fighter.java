@@ -142,26 +142,11 @@ public class Fighter {
 
 	//METHODS
 	public void attack(Fighter opponent) {
-		int attackTotal;
+		int attackTotal = this.getTotalDamage() * this.getWeapon().getWeakness(opponent.getWeapon());
 		//Message 0
 		Messages.addMessage(this.getName() + " is about to hit with an attack of " + this.getTotalDamage());
-		switch(analyzeWeakness(this, opponent)) {
-			case "Strong":
-				attackTotal = this.getTotalDamage() * 2;
-				//Message 1
-				Messages.addMessage("SMAAAAAAASH his weapon was super effective so it caused double damage, dealing " + attackTotal + " of damage.");
-				break;
-			case "Weak":
-				attackTotal = this.getTotalDamage() / 2;
-				//Message 1
-				Messages.addMessage("His weapon was not effective, dealing halved the damage, ending up in doing " + attackTotal + " of damage.");
-				break;
-			default:
-				attackTotal = this.getTotalDamage();
-				//Message 1
-				Messages.addMessage("It landed the hit");
-				
-		}
+		//Message 1
+		Messages.addMessage(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
 		System.out.println(this.getName() + " attacked with a total damage of : " + attackTotal + ".");
 		opponent.receiveAttack(attackTotal);
 	}
@@ -190,39 +175,6 @@ public class Fighter {
 			Messages.addMessage(this.getName() + " received no damage at all. So it's health is still at " + this.getTotalHealth());
 		}
 		System.out.println("---------------");
-	}
-	
-	public String analyzeWeakness(Fighter attackerWpn, Fighter defenderWpn) {
-		String res = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
-		if(res == "Equal") {
-			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = TIE");
-			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was the same type of his rival's so no effect was given.");
-		}
-		if(res == "Weak") {
-			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = " + defenderWpn.getWeapon().getType());
-			System.out.println(this.getName() + "'s " + this.getWeapon().getName() + " was weaker than of his rival's.");
-		}
-		if(res == "Strong") {
-			System.out.println(attackerWpn.getWeapon().getType() + " vs " + defenderWpn.getWeapon().getType() + " = " + attackerWpn.getWeapon().getType());
-			System.out.println("SMAAAAAASH " +this.getName() + "'s " + this.getWeapon().getName() + " was stronger than of this rival's.");
-		}
-		return res;	
-	}
-	
-	public String getMessage1FromWeakness(Fighter attackerWpn, Fighter defenderWpn) {
-		String aux = WeaponFactory.lookUpWeakness(attackerWpn.getWeapon().getType(), defenderWpn.getWeapon().getType());
-		String res = "";
-		if(aux == "Equal") {
-			res = this.getName() + "'s " + this.getWeapon().getName() + " was the same type of his rival's so no effect was given.";
-		}
-		if(aux == "Weak") {
-			res = this.getName() + "'s " + this.getWeapon().getName() + " was weaker than of his rival's.";
-		}
-		
-		if(aux == "Strong") {
-			res = "SMAAAAAASH " +this.getName() + "'s " + this.getWeapon().getName() + " was stronger than of this rival's.";
-		}
-		return res;	
 	}
 	
 	public void modifyLevel(String upOrDown) {

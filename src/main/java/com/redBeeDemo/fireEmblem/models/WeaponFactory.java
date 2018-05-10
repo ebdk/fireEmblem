@@ -10,20 +10,30 @@ public class WeaponFactory {
 	public WeaponFactory() {
 	}
 	
+	public static void setWeakness() {
+		WeaponType swords = Sword.getInstance();
+		WeaponType axes = Axe.getInstance();
+		WeaponType spears = Spear.getInstance();
+		
+		swords.setWeakness(axes, spears);
+		axes.setWeakness(spears, swords);
+		spears.setWeakness(swords, axes);
+	}
+	
 	public static Weapon createSword(String name, int attack) {
-		Weapon sword = new Weapon(name, attack, "Sword");
+		Weapon sword = new Weapon(name, attack, Sword.getInstance());
 		weapons.add(sword);
 		return sword;
 	}
 	
 	public static Weapon createAxe(String name, int attack) {
-		Weapon axe = new Weapon(name, attack, "Axe");
+		Weapon axe = new Weapon(name, attack, Axe.getInstance());
 		weapons.add(axe);
 		return axe;
 	}
 	
 	public static Weapon createSpear(String name, int attack) {
-		Weapon spear = new Weapon(name, attack, "Spear");
+		Weapon spear = new Weapon(name, attack, Spear.getInstance());
 		weapons.add(spear);
 		return spear;
 	}
@@ -55,60 +65,14 @@ public class WeaponFactory {
 		}
 		return res;
 	}
-	
-	public static String lookUpWeakness(String attackerWpn, String defenderWpn) {
-		String res = "";
-		if(attackerWpn == defenderWpn) {
-			res = "Equal";
-		} else {
-			switch(attackerWpn) {
-				//WEAPON: SWORD, STRONG AGAINST AXE BUT WEAK AGAINST SPEAR
-				case "Sword":
-					switch(defenderWpn) {
-						case "Axe": 
-							res = "Strong";
-							break;
-						case "Spear":
-							res = "Weak";
-							break;
-					}
-					break;
-					
-				//WEAPON: AXE, STRONG AGAINST SPEAR BUT WEAK AGAINST SWORD
-				case "Axe":
-					switch(defenderWpn) {
-						case "Sword": 
-							res = "Weak";
-							break;
-						case "Spear":
-							res = "Strong";
-							break;
-					}
-					break;
-					
-				//WEAPON: SPEAR, STRONG AGAINST SWORD BUT WEAK AGAINST AXE
-				case "Spear":
-					switch(defenderWpn) {
-						case "Axe": 
-							res = "Weak";
-							break;
-						case "Sword":
-							res = "Strong";
-							break;
-					}
-					break;
-			}
-		}
-		return res;
-	}
-	
+		
 	public static List<Weapon> getWeapons(){
 		return weapons;
 	}
 	
 	public static void printAllWeapons() {
 		for(Weapon weapon : weapons) {
-			weapon.printStats();
+			System.out.println(weapon.getStats());
 			System.out.println("---------------");
 		}
 	}

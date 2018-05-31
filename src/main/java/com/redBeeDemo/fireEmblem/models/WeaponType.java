@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "weapontype")
 
-public abstract class WeaponType {
+public class WeaponType {
 	
 	//ATTRIBUTES
 	@Id

@@ -2,6 +2,7 @@ package com.redBeeDemo.fireEmblem.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Weapon {
 	@GeneratedValue
 	private Long idWeapon;
 	
-	@ManyToOne()
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "weapontype_id")
 	private WeaponType type;
 	
